@@ -66,6 +66,7 @@ class _loginscreenState extends State<loginscreen> {
                       ),
                       Padding(padding: EdgeInsets.symmetric(vertical: 20),),
                       TextFormField(
+                        obscureText: true,
                         controller: _passwordController,
                         decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
