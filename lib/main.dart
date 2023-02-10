@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             labelText: 'Enter your e-mail',
                           ),
                         ),
-                        Padding(padding: EdgeInsets.symmetric(vertical: 30),),
+                        Padding(padding: EdgeInsets.symmetric(vertical: 20),),
                         TextFormField(
                           decoration: const InputDecoration(
                             border: UnderlineInputBorder(),
@@ -103,19 +103,34 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
 
               SizedBox(
-                width: 300,
+                width: 280,
                 height: 50,
 
                 child:
-                TextButton(onPressed: (){
-                  //code
-                },
-                  child: Text('Register Account',
-                    style: TextStyle(
-                      fontSize: 15,
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+
+                        Row(
+                          children: [
+                            Padding(padding: EdgeInsets.only(left: 40),),
+                            Text('Not a member?'),
+
+                            TextButton(onPressed: (){
+                              //code
+                            },
+                              child: Text('Register now!',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                ),
+
               ),
 
           ],
