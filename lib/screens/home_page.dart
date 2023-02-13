@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:ionicons/ionicons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage ({Key? key}) : super(key: key);
@@ -211,15 +213,41 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
-            Text('singed in as: ' + user.email!),
+            Text('Signed in as: ' + user.email!),
             TextButton(onPressed: (){
               FirebaseAuth.instance.signOut();
             },
                 child: Text('Log out'))
-
           ],
         ),
       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
+        child: GNav(
+          tabBackgroundColor: Colors.grey[300]!,
+          gap: 8,
+          padding: EdgeInsets.all(16),
+          tabs: const [
+            GButton(icon:
+            Ionicons.home_outline,
+              text: 'Home',
+            ),
+            GButton(icon:
+            Ionicons.calendar_outline,
+              text: 'Sheadule',
+            ),
+            GButton(icon:
+            Ionicons.list_outline,
+              text: 'Todos',
+            ),
+            GButton(icon:
+            Ionicons.person_outline,
+              text: 'Profile',
+            ),
+          ],
+        ),
+      ),
+
     );
   }
 

@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.3
   firebase_auth: ^4.2.6
+  google_nav_bar: ^5.0.6
+  ionicons: ^0.2.2
 
 dev_dependencies:
   flutter_test:
