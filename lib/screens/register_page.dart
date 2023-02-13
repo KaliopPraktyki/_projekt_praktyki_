@@ -1,34 +1,31 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class loginscreen extends StatefulWidget {
-  const loginscreen({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  final VoidCallback showLoginPage;
+  const RegisterPage ({Key? key, required this.showLoginPage}) : super(key: key);
 
   @override
-  State<loginscreen> createState() => _loginscreenState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _loginscreenState extends State<loginscreen> {
+class _RegisterPageState extends State<RegisterPage> {
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  Future signIn() async {
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-    );
-  }
 
   @override
+
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
 
-  @override
+  Future signUp () async {
+
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
 
@@ -41,7 +38,7 @@ class _loginscreenState extends State<loginscreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(padding: EdgeInsets.only(top: 150),),
-                Text('Welcome',
+                Text('Welcome There',
                   style: TextStyle(
                     fontSize: 40,
                   ),
@@ -85,10 +82,8 @@ class _loginscreenState extends State<loginscreen> {
               height: 50,
               child:
               GestureDetector(
-                onTap: signIn,
-                child: ElevatedButton(onPressed: () {
-                  signIn();
-                },
+                onTap: signUp,
+                child: ElevatedButton(onPressed: () {},
                   child: Text('Login',
                     style: TextStyle(
                       fontSize: 25,
@@ -116,9 +111,12 @@ class _loginscreenState extends State<loginscreen> {
                       TextButton(onPressed: () {
                         //code
                       },
-                        child: Text('Register now!',
-                          style: TextStyle(
-                            fontSize: 15,
+                        child: GestureDetector(
+                          onTap: widget.showLoginPage,
+                          child: Text('Register now!',
+                            style: TextStyle(
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                       ),
@@ -134,9 +132,4 @@ class _loginscreenState extends State<loginscreen> {
       ),
     );
   }
-
-
-
 }
-
-
