@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
             ),
             GButton(icon:
             Ionicons.calendar_outline,
-              text: 'Sheadule',
+              text: 'Schedule',
             ),
             GButton(icon:
             Ionicons.list_outline,

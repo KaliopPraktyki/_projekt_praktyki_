@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(padding: EdgeInsets.only(top: 150),),
-                Text('Register Now !',
+                Text('Join now!',
                   style: TextStyle(
                     fontSize: 40,
                   ),
@@ -114,7 +114,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: ElevatedButton(onPressed: () {
                     signUp();
                   },
-                    child: Text('SignUp',
+                    child: Text('Sign Up',
                       style: TextStyle(
                         fontSize: 25,
                       ),
