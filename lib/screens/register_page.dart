@@ -13,6 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmpasswordController = TextEditingController();
 
 
   @override
@@ -20,14 +21,25 @@ class _RegisterPageState extends State<RegisterPage> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmpasswordController.dispose();
     super.dispose();
   }
 
   Future signUp () async {
-  await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-  );
+    if(passwordConfirmed()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+    }
+  }
+
+  bool passwordConfirmed() {
+    if(_passwordController.text.trim() == _confirmpasswordController.text.trim()){
+      return true;
+    }else {
+      return false;
+    }
   }
 
   Widget build(BuildContext context) {
@@ -58,6 +70,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   child: Column(
                     children: [
+                      //email
                       TextFormField(
                         controller: _emailController,
                         decoration: const InputDecoration(
@@ -65,13 +78,24 @@ class _RegisterPageState extends State<RegisterPage> {
                           labelText: 'Enter your e-mail',
                         ),
                       ),
-                      Padding(padding: EdgeInsets.symmetric(vertical: 20),),
+                      //password
+                      Padding(padding: EdgeInsets.symmetric(vertical: 10),),
                       TextFormField(
                         obscureText: true,
                         controller: _passwordController,
                         decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: 'Enter your password',
+                        ),
+                      ),
+                      //confirm password
+                      Padding(padding: EdgeInsets.only(top: 15),),
+                      TextFormField(
+                        obscureText: true,
+                        controller: _confirmpasswordController,
+                        decoration: const InputDecoration(
+                          border: UnderlineInputBorder(),
+                          labelText: 'Confirm password',
                         ),
                       ),
                     ],
@@ -81,18 +105,21 @@ class _RegisterPageState extends State<RegisterPage> {
               ],
 
             ),
-            SizedBox(
-              width: 300,
-              height: 50,
-              child:
-              GestureDetector(
-                onTap: signUp,
-                child: ElevatedButton(onPressed: () {
-                  signUp();
-                },
-                  child: Text('SignUp',
-                    style: TextStyle(
-                      fontSize: 25,
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: SizedBox(
+                width: 300,
+                height: 50,
+                child:
+                GestureDetector(
+                  onTap: signUp,
+                  child: ElevatedButton(onPressed: () {
+                    signUp();
+                  },
+                    child: Text('SignUp',
+                      style: TextStyle(
+                        fontSize: 25,
+                      ),
                     ),
                   ),
                 ),
