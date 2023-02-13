@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -23,7 +24,10 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future signUp () async {
-
+  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+  );
   }
 
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(padding: EdgeInsets.only(top: 150),),
-                Text('Welcome There',
+                Text('Register Now !',
                   style: TextStyle(
                     fontSize: 40,
                   ),
@@ -83,8 +87,10 @@ class _RegisterPageState extends State<RegisterPage> {
               child:
               GestureDetector(
                 onTap: signUp,
-                child: ElevatedButton(onPressed: () {},
-                  child: Text('Login',
+                child: ElevatedButton(onPressed: () {
+                  signUp();
+                },
+                  child: Text('SignUp',
                     style: TextStyle(
                       fontSize: 25,
                     ),
@@ -96,7 +102,6 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(
               width: 280,
               height: 50,
-
               child:
               Column(
                 mainAxisSize: MainAxisSize.min,
@@ -105,15 +110,15 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   Row(
                     children: [
-                      Padding(padding: EdgeInsets.only(left: 40),),
-                      Text('Not a member?'),
+                      Padding(padding: EdgeInsets.only(left: 8),),
+                      Text('Are you already a member?'),
 
                       TextButton(onPressed: () {
                         //code
                       },
                         child: GestureDetector(
                           onTap: widget.showLoginPage,
-                          child: Text('Register now!',
+                          child: Text('Login now!',
                             style: TextStyle(
                               fontSize: 15,
                             ),
