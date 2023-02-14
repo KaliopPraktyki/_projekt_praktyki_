@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.transparent,
                               fontWeight: FontWeight.bold),
                         ),
-                        Padding(padding: EdgeInsets.only(top: 5),
+                        Padding(padding: EdgeInsets.only(top: 20),
                         child: Text(
                           'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                           style: TextStyle(
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 5),
+                            padding: const EdgeInsets.only(top: 20),
                             child: Text(
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
@@ -169,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 5),
+                            padding: EdgeInsets.only(top: 20),
                             child: Text(
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
@@ -213,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 5),
+                            padding: const EdgeInsets.only(top: 20),
                             child: Text(
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
