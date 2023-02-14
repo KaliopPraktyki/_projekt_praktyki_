@@ -22,42 +22,43 @@ class _HomePageState extends State<HomePage> {
           children: [
             Row(
               children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 60),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Welcome',
-                           style: TextStyle(
-                              fontSize: 40),
-                        ),
-                        Text(
-                          'home',
-                          style: TextStyle(
-                              color: Color(0xff9ea8c6),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40),
-                        ),
-                      ],
-                    ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, top: 60),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 20 ),),
+                      Text(
+                        'Welcome',
+                        style: TextStyle(
+                            fontSize: 30),
+                      ),
+                      Text(
+                        'home',
+                        style: TextStyle(
+                            color: Color(0xff9ea8c6),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30),
+                      ),
+                    ],
                   ),
+                ),
               ],
-
             ),
-
             Padding(
-              padding: EdgeInsets.only(bottom: 20 ),),
+              padding: EdgeInsets.only(bottom: 30 ),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                   width: 350,
                   height: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24.0),
-                    color: Color(0xfff2f2f2),
+                    color: Color(0xffff0f0f0),
                   ),
                   child:
                   Padding(
@@ -92,13 +93,13 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 200),),
+                Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.0),
-                      color: Color(0xfff2f2f2),
+                      color: Color(0xffff0f0f0),
                     ),
                     child:
                     Padding(
@@ -134,13 +135,13 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 150),),
+                Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.0),
-                      color: Color(0xfff2f2f2),
+                      color: Color(0xffff0f0f0),
                     ),
                     child:
                     Padding(
@@ -175,13 +176,13 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 200),),
+                Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.0),
-                      color: Color(0xfff2f2f2),
+                      color: Color(0xffff0f0f0),
                     ),
                     child:
                     Padding(
