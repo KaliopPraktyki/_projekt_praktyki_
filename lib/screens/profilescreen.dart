@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
+import 'settings_screen.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SizedBox(
         width: double.infinity,
         child: Column(
@@ -26,11 +28,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 4,
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 330,
+                      top: 40
+                    ),
+                    child: SizedBox(width: 200,
+                      child: IconButton(
+                        iconSize: 40,
+                        icon: const Icon(Icons.settings),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                   Container(
                     height: 120,
                     width: 120,
                     margin: const EdgeInsets.only(
-                      top: 100,
+                      top: 50,
                       bottom: 8,
                     ),
                     decoration: BoxDecoration(
@@ -94,20 +114,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     listProfile(Icons.male, "Gender", "Male/Female"),
                     listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
-                  SizedBox(width: 200,
-                    child: IconButton(
-                      iconSize: 30,
-                      icon: const Icon(Icons.settings),
-                      onPressed: () {
-                        // ...
-                      },
-                    ),
-                  ),
                     SizedBox(width: 200,
-                      child: TextButton(onPressed: (){
-                        FirebaseAuth.instance.signOut();
-                      },
-                        child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 23,),),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          top: 60,
+                        ),
+                        child: TextButton(onPressed: (){
+                          FirebaseAuth.instance.signOut();
+                        },
+                          child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 23,),),
+                        ),
                       ),
                     )
 
