@@ -50,6 +50,7 @@ class _loginscreenState extends State<loginscreen> {
                 Padding(padding: EdgeInsets.only(top: 150),),
                 Text('Welcome',
                   style: TextStyle(
+                    fontFamily: 'Spoof',
                     fontSize: 40,
                   ),
                 ),
@@ -134,7 +135,7 @@ class _loginscreenState extends State<loginscreen> {
 
                   Row(
                     children: [
-                      Padding(padding: EdgeInsets.only(left: 40),),
+                      Padding(padding: EdgeInsets.only(left: 30),),
                       Text('Not a member?'),
 
                       TextButton(onPressed: () {
