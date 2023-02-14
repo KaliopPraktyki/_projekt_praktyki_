@@ -22,10 +22,8 @@ class MyThemes{
 
   static final lightTheme = FlexThemeData.light(
     scheme: FlexScheme.blue,
-    appBarBackground: Colors.black,
+    appBarBackground: Colors.white,
 
   );
-
-
 
 }

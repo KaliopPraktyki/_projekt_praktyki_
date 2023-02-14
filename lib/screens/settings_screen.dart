@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/screens/home_page.dart';
-import 'package:loginscreen/screens/home_screen.dart';
-import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:provider/provider.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
-import 'package:loginscreen/l10n/l10n.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 
@@ -34,7 +29,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Settings',
+        style: TextStyle(fontFamily: 'Spoof',fontSize: 25),),
       ),
       body: SafeArea(
         child: Padding(
