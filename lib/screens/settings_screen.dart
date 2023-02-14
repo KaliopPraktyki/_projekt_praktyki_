@@ -38,30 +38,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 20,),
-              // const Text(
-              //   "Settings",
-              //   style: TextStyle(
-              //       fontFamily: 'Spoof',
-              //       fontSize: 40,
-              //       fontWeight: FontWeight.bold
-              //   ),
-              // ),
-              const SizedBox(height: 20,),
               ThemeChanger(
                 color: Colors.black,
                 icon: icon,
                 title: text,
                 iconColor: Colors.white,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Profile",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               SettingsTile(
                 color: const Color.fromARGB(200, 12, 167, 137),
                 icon: Ionicons.pencil,
@@ -75,28 +65,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: 'Change Password',
                 iconColor: color,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Notifications",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
                SettingsTile(
                 color: const Color.fromARGB(200, 95, 99, 251),
                 icon: Ionicons.notifications,
                 title: 'Notifications',
                 iconColor: color,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Regional",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
                SettingsTile(
                 color: const Color.fromARGB(200, 250, 199, 16),
                 icon: Ionicons.language,

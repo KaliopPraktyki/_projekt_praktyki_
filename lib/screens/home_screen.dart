@@ -27,16 +27,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(top: 20 ),),
-                      Text(
+                      const Text(
                         'Welcome',
                         style: TextStyle(
                             fontSize: 25),
                       ),
                       Text(
                         user.email!,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color(0xff9ea8c6),
                             fontWeight: FontWeight.bold,
                             fontSize: 25),
@@ -47,26 +47,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(bottom: 30 ),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 180),),
+                const Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                   width: 350,
                   height: 150,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(24.0),
-                    color: Color(0xffff0f0f0),
+                    color: const Color(0xffff0f0f0),
                   ),
                   child:
                   Padding(
-                    padding: EdgeInsets.only(left:20, top:20, bottom: 5, right: 10),
+                    padding: const EdgeInsets.only(left:20, top:20, bottom: 5, right: 10),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           'Company Birthday',
                           style: TextStyle(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                             style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.black),
+                                ),
                           ),
                         ),
 
@@ -96,13 +96,13 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 180),),
+                const Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(24.0),
-                      color: Color(0xffff0f0f0),
+                      color: const Color(0xffff0f0f0),
                     ),
                     child:
                     Padding(
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Company Birthday',
                             style: TextStyle(
@@ -124,12 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 20),
+                            padding: EdgeInsets.only(top: 20),
                             child: Text(
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.black),
+                                  ),
                             ),
                           ),
                         ],
@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Company Birthday',
                             style: TextStyle(
@@ -173,7 +173,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.black),
+                                  ),
                             ),
                           ),
                         ],
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Company Birthday',
                             style: TextStyle(
@@ -212,12 +212,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.bold),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 20),
+                            padding: EdgeInsets.only(top: 20),
                             child: Text(
                               'Jubileusz firmy to święto, celebracja rocznicy założenia firmy. Najbardziej prestiżowe są jubileusze 10-, 20-, 30-lecia i więcej firmy.',
                               style: TextStyle(
                                   fontSize: 15,
-                                  color: Colors.black),
+                                 ),
                             ),
                           ),
                         ],
