@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
                             fontSize: 25),
                       ),
                     ],
-
                   ),
                 ),
               ],
@@ -87,7 +86,6 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.black),
                         ),
                         ),
-
                       ],
                     ),
                   ),
