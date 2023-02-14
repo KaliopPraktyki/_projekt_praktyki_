@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/screens/home_page.dart';
-import 'package:loginscreen/screens/home_screen.dart';
-import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:provider/provider.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
-import 'package:loginscreen/l10n/l10n.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 
@@ -33,46 +28,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
         : Colors.white;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings',
+        style: TextStyle(fontFamily: 'Spoof',fontSize: 25),),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               IconButton(
-                  iconSize: 40,
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                ),
-              const SizedBox(height: 20,),
-              const Text(
-                "Settings",
-                style: TextStyle(
-                    fontFamily: 'Spoof',
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-              const SizedBox(height: 20,),
               ThemeChanger(
                 color: Colors.black,
                 icon: icon,
                 title: text,
                 iconColor: Colors.white,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Profile",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               SettingsTile(
                 color: const Color.fromARGB(200, 12, 167, 137),
                 icon: Ionicons.pencil,
@@ -86,28 +65,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: 'Change Password',
                 iconColor: color,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Notifications",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
                SettingsTile(
                 color: const Color.fromARGB(200, 95, 99, 251),
                 icon: Ionicons.notifications,
                 title: 'Notifications',
                 iconColor: color,
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
               const Text("Regional",
                 style: TextStyle(
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
                 ),),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 25,),
                SettingsTile(
                 color: const Color.fromARGB(200, 250, 199, 16),
                 icon: Ionicons.language,

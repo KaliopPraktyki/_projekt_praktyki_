@@ -38,19 +38,23 @@ class ThemeChanger extends StatelessWidget {
         Text(title,
         style: const TextStyle(
           fontFamily: 'Spoof',
-          fontSize: 18,
+          fontSize: 22,
         ),
         ),
         const SizedBox(width: 10,),
         const Spacer(),
-        CupertinoSwitch(
-        activeColor: const Color.fromARGB(255, 45,155,240),
-        value: themeProvider.isDarkMode,
-        onChanged: (value){
-      final provider = Provider.of<ThemeProvider>(context,listen: false);
-      provider.toggleTheme(value);
-    }
-    ),
+        Transform.scale(
+          scale: 0.8,
+          child: CupertinoSwitch(
+              activeColor: const Color.fromARGB(255, 45,155,240),
+              value: themeProvider.isDarkMode,
+              onChanged: (value){
+                final provider = Provider.of<ThemeProvider>(context,listen: false);
+                provider.toggleTheme(value);
+              }
+          ),
+        )
+
       ],
     );
 
