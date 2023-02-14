@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             fontSize: 25),
                       ),
                       Text(
-                        'User',
+                        user.email!,
                         style: TextStyle(
                             color: Color(0xff9ea8c6),
                             fontWeight: FontWeight.bold,
@@ -226,11 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            Text('Signed in as: ' + user.email!),
-            TextButton(onPressed: (){
-              FirebaseAuth.instance.signOut();
-            },
-                child: Text('Log out'))
+
           ],
         ),
 
