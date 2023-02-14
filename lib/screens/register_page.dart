@@ -52,6 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 15),
               child: SizedBox(
                 width: 300,
                 height: 50,
@@ -218,7 +219,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       },
                         child: GestureDetector(
                           onTap: widget.showLoginPage,
-                          child: Text('Login now!',
+                          child: Text('Login now',
                             style: TextStyle(
                               fontSize: 15,
                             ),
