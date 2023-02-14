@@ -134,32 +134,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
-        child: GNav(
-          tabBackgroundColor: Colors.grey[300]!,
-          gap: 8,
-          padding: EdgeInsets.all(16),
-          tabs: const [
-            GButton(icon:
-            Ionicons.home_outline,
-            text: 'Home',
-            ),
-            GButton(icon:
-            Ionicons.calendar_outline,
-            text: 'Sheadule',
-            ),
-            GButton(icon:
-            Ionicons.list_outline,
-            text: 'Todos',
-            ),
-            GButton(icon:
-            Ionicons.person_outline,
-            text: 'Profile',
-            ),
-          ],
-        ),
-      ),
     );
   }
 
