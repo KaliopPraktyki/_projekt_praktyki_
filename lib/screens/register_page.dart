@@ -42,6 +42,12 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
+  late bool _passwordVisible;
+
+  void initState() {
+    _passwordVisible = false;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -79,21 +85,55 @@ class _RegisterPageState extends State<RegisterPage> {
                       //password
                       Padding(padding: EdgeInsets.symmetric(vertical: 10),),
                       TextFormField(
-                        obscureText: true,
+                        keyboardType: TextInputType.text,
                         controller: _passwordController,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: 'Enter your password',
+                        obscureText: !_passwordVisible,//This will obscure text dynamically
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                          hintText: 'Enter your password',
+                          // Here is key idea
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                          ),
                         ),
                       ),
                       //confirm password
                       Padding(padding: EdgeInsets.only(top: 15),),
                       TextFormField(
-                        obscureText: true,
+                        keyboardType: TextInputType.text,
                         controller: _confirmpasswordController,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: 'Confirm password',
+                        obscureText: !_passwordVisible,//This will obscure text dynamically
+                        decoration: InputDecoration(
+                          labelText: 'Confirm Password',
+                          hintText: 'Enter your password',
+                          // Here is key idea
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                          ),
                         ),
                       ),
                     ],
