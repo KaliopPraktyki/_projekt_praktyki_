@@ -115,14 +115,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
                     SizedBox(width: 200,
-                      child: Padding(
+                      child:
+                      Padding(
                         padding: const EdgeInsets.only(
-                          top: 60,
+                          top: 80,
                         ),
-                        child: TextButton(onPressed: (){
-                          FirebaseAuth.instance.signOut();
-                        },
-                          child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 23,),),
+                        child: Container(
+                          decoration: BoxDecoration(border: Border.all(width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: MaterialButton(onPressed: (){
+                            FirebaseAuth.instance.signOut();
+                          },
+                            child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                          ),
                         ),
                       ),
                     )
