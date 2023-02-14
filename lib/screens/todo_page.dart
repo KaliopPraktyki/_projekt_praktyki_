@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
-class todo extends StatefulWidget {
+
+class to_do extends StatefulWidget {
 
   @override
-  State<todo> createState() => _todoState();
+  State<to_do> createState() => _to_doState();
 }
 
-class _todoState extends State<todo> {
+class _to_doState extends State<to_do> {
   //List todo = List();
 
-  //final List<String> items = List<String>.generate(10000, (i) => '$i');
   String input = "";
 
   var todo = ["Uśmiechnij się!"];
+
+  // createTodo() {
+  //   DocumentReference documentReference =
+  //     Firestore.instance.collection("All ToDos").document(input);
+  //
+  // }
+
+  // deletetodo() {
+  //
+  // }
 
   // @override
   // void initState() {
@@ -25,20 +36,15 @@ class _todoState extends State<todo> {
   //   todo.add("item4");
   // }
 
-  // icon: Icon(
-  // Icons.delete,
-  // color: Colors.red
-  // ),
-
-  //Text("ToDos")
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: Text("All ToDos",
+          style: TextStyle(color: Colors.black),),
         backgroundColor: Colors.white,
         shadowColor: Colors.white,
+        elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
@@ -77,6 +83,22 @@ class _todoState extends State<todo> {
           itemBuilder: (BuildContext context, int index) {
             return Dismissible(
                 key: Key(todo[index]),
+                child: Slidable (
+                  startActionPane: ActionPane(
+                    motion: const BehindMotion(),
+                    children: [
+                      SlidableAction(
+                          onPressed: ((context) {
+                            setState(() {
+                              todo.removeAt(index);
+                            });
+                          }),
+                          icon: Icons.delete,
+                          backgroundColor: Colors.red,
+                      ),
+                    ],
+                  ),
+
                 child: Card(
                   elevation: 2,
                   margin: EdgeInsets.all(8),
@@ -84,20 +106,11 @@ class _todoState extends State<todo> {
                   BorderRadius.circular(8)),
                   child: ListTile(
                     title: Text(todo[index]),
-                    trailing: IconButton(
-                        icon: Icon(
-                            Icons.delete,
-                            color: Colors.red
-                        ),
-                        onPressed: (){
-                          setState(() {
-                            todo.removeAt(index);
-                          });
-                        }),
-                  ),
-                ));
-          }),
 
+                  ),
+                )),
+            );
+          }),
     );
   }
 }
