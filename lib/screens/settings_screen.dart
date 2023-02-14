@@ -33,31 +33,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
         : Colors.white;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               IconButton(
-                  iconSize: 40,
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                ),
               const SizedBox(height: 20,),
-              const Text(
-                "Settings",
-                style: TextStyle(
-                    fontFamily: 'Spoof',
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
+              // const Text(
+              //   "Settings",
+              //   style: TextStyle(
+              //       fontFamily: 'Spoof',
+              //       fontSize: 40,
+              //       fontWeight: FontWeight.bold
+              //   ),
+              // ),
               const SizedBox(height: 20,),
               ThemeChanger(
                 color: Colors.black,
