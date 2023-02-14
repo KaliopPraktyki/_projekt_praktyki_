@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:provider/provider.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
 import 'package:loginscreen/l10n/l10n.dart';
@@ -36,7 +37,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Icon(Ionicons.chevron_back),
+               IconButton(
+                  iconSize: 40,
+                  icon: const Icon(Icons.chevron_left),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                    );
+                  },
+                ),
               const SizedBox(height: 20,),
               const Text(
                 "Settings",
