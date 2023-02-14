@@ -24,7 +24,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _confirmpasswordController.dispose();
     super.dispose();
   }
-
   Future signUp () async {
     if(passwordConfirmed()) {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -33,7 +32,6 @@ class _RegisterPageState extends State<RegisterPage> {
       );
     }
   }
-
   bool passwordConfirmed() {
     if(_passwordController.text.trim() == _confirmpasswordController.text.trim()){
       return true;
@@ -43,10 +41,14 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   late bool _passwordVisible;
-
   void initState() {
     _passwordVisible = false;
   }
+
+  String _password = '';
+  String _confirmPassword = '';
+
+  final _formKey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,12 +71,13 @@ class _RegisterPageState extends State<RegisterPage> {
             Stack(
               children: [
                 Container(
-                  height: 230,
+                  height: 260,
                   width: 300,
 
                   child: Column(
                     children: [
                       //email
+
                       TextFormField(
                         controller: _emailController,
                         decoration: const InputDecoration(
@@ -83,76 +86,108 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                       ),
                       //password
-                      Padding(padding: EdgeInsets.symmetric(vertical: 10),),
-                      TextFormField(
-                        keyboardType: TextInputType.text,
-                        controller: _passwordController,
-                        obscureText: !_passwordVisible,//This will obscure text dynamically
-                        decoration: InputDecoration(
-                          labelText: 'Password',
-                          hintText: 'Enter your password',
-                          // Here is key idea
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Theme.of(context).primaryColorDark,
-                            ),
-                            onPressed: () {
-                              // Update the state i.e. toogle the state of passwordVisible variable
-                              setState(() {
-                                _passwordVisible = !_passwordVisible;
-                              });
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                        children: [
+                          Padding(padding: EdgeInsets.symmetric(vertical: 10),),
+                          TextFormField(
+                            onChanged: (value){
+                              _password = value;
                             },
-                          ),
-                        ),
-                      ),
-                      //confirm password
-                      Padding(padding: EdgeInsets.only(top: 15),),
-                      TextFormField(
-                        keyboardType: TextInputType.text,
-                        controller: _confirmpasswordController,
-                        obscureText: !_passwordVisible,//This will obscure text dynamically
-                        decoration: InputDecoration(
-                          labelText: 'Confirm Password',
-                          hintText: 'Enter your password',
-                          // Here is key idea
-                          suffixIcon: IconButton(
-                            icon: Icon(
-                              // Based on passwordVisible state choose the icon
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              color: Theme.of(context).primaryColorDark,
-                            ),
-                            onPressed: () {
-                              // Update the state i.e. toogle the state of passwordVisible variable
-                              setState(() {
-                                _passwordVisible = !_passwordVisible;
-                              });
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return 'Password is required please enter';
+                              }
+
+                              return null;
                             },
+                            keyboardType: TextInputType.text,
+                            controller: _passwordController,
+                            obscureText: !_passwordVisible,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              hintText: 'Enter your password',
+                              // Here is key idea
+                              suffixIcon: IconButton(
+                                icon: Icon(
+
+                                  _passwordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Theme.of(context).primaryColorDark,
+                                ),
+                                onPressed: () {
+
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                },
+                              ),
+                            ),
                           ),
-                        ),
+                          //confirm password
+
+                          Padding(padding: EdgeInsets.only(top: 15),),
+                          TextFormField(
+                            onChanged: (value){
+                              _confirmPassword = value;
+                            },
+                            validator: (value) {
+                              if (value != null && value.isEmpty) {
+                                return 'Conform password is required please enter';
+                              }
+                              if(value != _password){
+                                return 'Confirm password not matching';
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.text,
+                            controller: _confirmpasswordController,
+                            obscureText: !_passwordVisible,
+                            decoration: InputDecoration(
+                              labelText: 'Confirm Password',
+                              hintText: 'Enter your password',
+                              // Here is key idea
+                              suffixIcon: IconButton(
+                                icon: Icon(
+
+                                  _passwordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Theme.of(context).primaryColorDark,
+                                ),
+                                onPressed: () {
+
+                                  setState(() {
+                                    _passwordVisible = !_passwordVisible;
+                                  });
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
+                      ),
+
                     ],
                   ),
                 ),
 
               ],
-
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 30),
               child: SizedBox(
                 width: 300,
                 height: 50,
                 child:
                 GestureDetector(
                   onTap: signUp,
-                  child: ElevatedButton(onPressed: () {
-                    signUp();
+                  child: ElevatedButton(onPressed: () => {
+                  if (_formKey.currentState!.validate()) {
+                      signUp(),
+                  }
                   },
                     child: Text('Sign Up',
                       style: TextStyle(
@@ -166,7 +201,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
             SizedBox(
               width: 280,
-              height: 50,
+              height: 80,
               child:
               Column(
                 mainAxisSize: MainAxisSize.min,
