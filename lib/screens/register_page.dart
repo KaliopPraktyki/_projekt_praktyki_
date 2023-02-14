@@ -52,7 +52,7 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(padding: EdgeInsets.only(top: 150),),
-                Text('Join now!',
+                Text('Join now',
                   style: TextStyle(
                     fontSize: 40,
                   ),
