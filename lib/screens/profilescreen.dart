@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
@@ -11,6 +12,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -85,15 +87,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      "My profile",
-                      style: TextStyle(
-                        fontFamily: "Spoof-regular",
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ),
-                    ),
                     const SizedBox(height: 26,),
                     listProfile(Icons.person, "Full Name", "Your Name"),
                     listProfile(Icons.date_range, "Date of Birth", "Month XX, XXXX"),
@@ -102,17 +95,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
                   SizedBox(width: 200,
-                    child: TextButton(onPressed: (){
-                    //code
-                  },
-                      child: Text('Settings', style: TextStyle(color: Colors.blue, fontSize: 23,),),
-                  ),
+                    child: IconButton(
+                      iconSize: 30,
+                      icon: const Icon(Icons.settings),
+                      onPressed: () {
+                        // ...
+                      },
+                    ),
                   ),
                     SizedBox(width: 200,
                       child: TextButton(onPressed: (){
-                        //code
+                        FirebaseAuth.instance.signOut();
                       },
-                        child: Text('Log out', style: TextStyle(color: Colors.red, fontSize: 23,),),
+                        child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 23,),),
                       ),
                     )
 
