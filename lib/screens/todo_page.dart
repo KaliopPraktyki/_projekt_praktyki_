@@ -2,24 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.blue,
-    ),
-    home: MyApp(),
-  ));
-}
-
-class MyApp extends StatefulWidget {
+class todo extends StatefulWidget {
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<todo> createState() => _todoState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _todoState extends State<todo> {
   //List todo = List();
 
   //final List<String> items = List<String>.generate(10000, (i) => '$i');
@@ -108,33 +97,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ));
           }),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
 
-        child: GNav(
-          tabBackgroundColor: Colors.grey[300]!,
-          gap: 8,
-          padding: EdgeInsets.all(16),
-          tabs: const [
-            GButton(icon:
-            Ionicons.home_outline,
-              text: 'Home',
-            ),
-            GButton(icon:
-            Ionicons.calendar_outline,
-              text: 'Sheadule',
-            ),
-            GButton(icon:
-            Ionicons.list_outline,
-              text: 'Todos',
-            ),
-            GButton(icon:
-            Ionicons.person_outline,
-              text: 'Profile',
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
