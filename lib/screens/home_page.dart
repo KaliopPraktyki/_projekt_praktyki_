@@ -234,6 +234,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text('Log out'))
           ],
         ),
+
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
