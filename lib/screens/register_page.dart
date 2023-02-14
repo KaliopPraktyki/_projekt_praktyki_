@@ -63,6 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(padding: EdgeInsets.only(top: 150),),
                 Text('Join now',
                   style: TextStyle(
+                    fontFamily: 'Spoof',
                     fontSize: 40,
                   ),
                 ),
