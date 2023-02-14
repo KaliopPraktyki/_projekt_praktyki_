@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 class ThemeProvider extends ChangeNotifier{
   ThemeMode themeMode = ThemeMode.light;
@@ -13,13 +14,18 @@ class ThemeProvider extends ChangeNotifier{
 
 class MyThemes{
   static final darkTheme = ThemeData(
-    colorScheme: const ColorScheme.dark(),
+    scaffoldBackgroundColor: Colors.grey.shade900,
+    primaryColor: Colors.black,
+    colorScheme: const ColorScheme.dark()
 
   );
 
-  static final lightTheme = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    colorScheme: const ColorScheme.light(),
+  static final lightTheme = FlexThemeData.light(
+    scheme: FlexScheme.blue,
+    appBarBackground: Colors.black,
+
   );
+
+
 
 }

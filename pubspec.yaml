@@ -43,6 +43,7 @@ dependencies:
   flutter_slidable: ^2.0.0
   provider: ^6.0.5
   theme_provider: ^0.5.0
+  flex_color_scheme: ^6.1.2
 
 dev_dependencies:
   flutter_test:
