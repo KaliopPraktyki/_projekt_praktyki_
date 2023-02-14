@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
+import 'settings_screen.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -11,10 +13,12 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SizedBox(
         width: double.infinity,
         child: Column(
@@ -24,11 +28,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 4,
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 330,
+                      top: 40
+                    ),
+                    child: SizedBox(width: 200,
+                      child: IconButton(
+                        iconSize: 40,
+                        icon: const Icon(Icons.settings),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
                   Container(
                     height: 120,
                     width: 120,
                     margin: const EdgeInsets.only(
-                      top: 100,
+                      top: 50,
                       bottom: 8,
                     ),
                     decoration: BoxDecoration(
@@ -85,15 +107,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      "My profile",
-                      style: TextStyle(
-                        fontFamily: "Spoof-regular",
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ),
-                    ),
                     const SizedBox(height: 26,),
                     listProfile(Icons.person, "Full Name", "Your Name"),
                     listProfile(Icons.date_range, "Date of Birth", "Month XX, XXXX"),
@@ -101,50 +114,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     listProfile(Icons.male, "Gender", "Male/Female"),
                     listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
-                  SizedBox(width: 200,
-                    child: TextButton(onPressed: (){
-                    //code
-                  },
-                      child: Text('Settings', style: TextStyle(color: Colors.blue, fontSize: 23,),),
-                  ),
-                  ),
                     SizedBox(width: 200,
-                      child: TextButton(onPressed: (){
-                        //code
-                      },
-                        child: Text('Log out', style: TextStyle(color: Colors.red, fontSize: 23,),),
+                      child:
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 80,
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(border: Border.all(width: 2),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: MaterialButton(onPressed: (){
+                            FirebaseAuth.instance.signOut();
+                          },
+                            child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                          ),
+                        ),
                       ),
                     )
 
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
-        child: GNav(
-          tabBackgroundColor: Colors.grey[300]!,
-          gap: 8,
-          padding: EdgeInsets.all(16),
-          tabs: const [
-            GButton(icon:
-            Ionicons.home_outline,
-            text: 'Home',
-            ),
-            GButton(icon:
-            Ionicons.calendar_outline,
-            text: 'Sheadule',
-            ),
-            GButton(icon:
-            Ionicons.list_outline,
-            text: 'Todos',
-            ),
-            GButton(icon:
-            Ionicons.person_outline,
-            text: 'Profile',
             ),
           ],
         ),
