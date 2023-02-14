@@ -50,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 120,
                     width: 120,
                     margin: const EdgeInsets.only(
-                      top: 50,
+                      top: 30,
                       bottom: 8,
                     ),
                     decoration: BoxDecoration(
@@ -104,36 +104,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     topRight: Radius.circular(50),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 26,),
-                    listProfile(Icons.person, "Full Name", "Your Name"),
-                    listProfile(Icons.date_range, "Date of Birth", "Month XX, XXXX"),
-                    listProfile(Icons.location_pin, "Location", "Adress"),
-                    listProfile(Icons.male, "Gender", "Male/Female"),
-                    listProfile(Icons.phone, "Phone Number", "111 111 111"),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 26,),
+                      listProfile(Icons.person, "Full Name", "Your Name"),
+                      listProfile(Icons.date_range, "Date of Birth", "Month XX, XXXX"),
+                      listProfile(Icons.location_pin, "Location", "Adress"),
+                      listProfile(Icons.male, "Gender", "Male/Female"),
+                      listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
-                    SizedBox(width: 200,
-                      child:
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 80,
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(border: Border.all(width: 2),
-                            borderRadius: BorderRadius.circular(20),
+                      SizedBox(width: 200,
+                        child:
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 80,
                           ),
-                          child: MaterialButton(onPressed: (){
-                            FirebaseAuth.instance.signOut();
-                          },
-                            child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                          child: Container(
+                            decoration: BoxDecoration(border: Border.all(width: 2),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(onPressed: (){
+                              FirebaseAuth.instance.signOut();
+                            },
+                              child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                            ),
                           ),
                         ),
-                      ),
-                    )
+                      )
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

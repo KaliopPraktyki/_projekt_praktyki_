@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/screens/home_page.dart';
+import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:provider/provider.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
@@ -43,7 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                      MaterialPageRoute(builder: (context) => const HomePage()),
                     );
                   },
                 ),
