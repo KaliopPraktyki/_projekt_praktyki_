@@ -8,7 +8,6 @@ class to_do extends StatefulWidget {
 
   @override
   State<to_do> createState() => _to_doState();
-
 }
 
 class _to_doState extends State<to_do> {
@@ -84,27 +83,32 @@ class _to_doState extends State<to_do> {
           itemBuilder: (BuildContext context, int index) {
             return Dismissible(
                 key: Key(todo[index]),
-
-
-              child: Card(
-                elevation: 2,
-                margin: EdgeInsets.all(8),
-                shape: RoundedRectangleBorder(borderRadius:
-                BorderRadius.circular(8)),
-                child: ListTile(
-                  title: Text(todo[index]),
-                  trailing: IconButton(
-                      icon: Icon(
-                          Icons.delete,
-                          color: Colors.red
+                child: Slidable (
+                  startActionPane: ActionPane(
+                    motion: const BehindMotion(),
+                    children: [
+                      SlidableAction(
+                          onPressed: ((context) {
+                            setState(() {
+                              todo.removeAt(index);
+                            });
+                          }),
+                          icon: Icons.delete,
+                          backgroundColor: Colors.red,
                       ),
-                      onPressed: (){
-                        setState(() {
-                          todo.removeAt(index);
-                        });
-                      }),
-                ),
-              ),
+                    ],
+                  ),
+
+                child: Card(
+                  elevation: 2,
+                  margin: EdgeInsets.all(8),
+                  shape: RoundedRectangleBorder(borderRadius:
+                  BorderRadius.circular(8)),
+                  child: ListTile(
+                    title: Text(todo[index]),
+
+                  ),
+                )),
             );
           }),
     );
