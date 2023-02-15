@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../provider/theme_provider.dart';
+import 'package:loginscreen/provider/theme_provider.dart';
 
 class ThemeChanger extends StatelessWidget {
   final Color color;
@@ -19,7 +20,6 @@ class ThemeChanger extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Row(
       children: [
         Container(
@@ -43,18 +43,19 @@ class ThemeChanger extends StatelessWidget {
         ),
         const SizedBox(width: 10,),
         const Spacer(),
+        Consumer<ThemeNotifier>(
+            builder: (context, notifier,child) =>
         Transform.scale(
           scale: 0.8,
           child: CupertinoSwitch(
               activeColor: const Color.fromARGB(255, 45,155,240),
-              value: themeProvider.isDarkMode,
-              onChanged: (value){
-                final provider = Provider.of<ThemeProvider>(context,listen: false);
-                provider.toggleTheme(value);
+              value:notifier.darkTheme,
+              onChanged: (val){
+                notifier.toggleTheme();
               }
           ),
         )
-
+        ),
       ],
     );
 
