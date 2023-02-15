@@ -28,11 +28,19 @@ class MyThemes{
     blendLevel: 15,
     subThemesData: const FlexSubThemesData(
       blendOnLevel: 15,
+      textButtonSchemeColor: SchemeColor.onPrimaryContainer,
+      elevatedButtonRadius: 3.0,
+      elevatedButtonSchemeColor: SchemeColor.onPrimary,
+      elevatedButtonSecondarySchemeColor: SchemeColor.surfaceTint,
+      outlinedButtonSchemeColor: SchemeColor.onPrimaryContainer,
+      toggleButtonsSchemeColor: SchemeColor.onPrimaryContainer,
       inputDecoratorSchemeColor: SchemeColor.primaryContainer,
       inputDecoratorIsFilled: false,
       inputDecoratorBorderType: FlexInputBorderType.underline,
       inputDecoratorUnfocusedBorderIsColored: false,
       inputDecoratorFocusedBorderWidth: 2.0,
+      fabUseShape: true,
+      fabAlwaysCircular: true,
       appBarBackgroundSchemeColor: SchemeColor.background,
       bottomNavigationBarElevation: 8.5,
       bottomNavigationBarShowUnselectedLabels: false,
@@ -43,6 +51,8 @@ class MyThemes{
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: true,
+    // To use the Playground font, add GoogleFonts package and uncomment
+    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
   static final lightTheme = FlexThemeData.light(
@@ -61,10 +71,18 @@ class MyThemes{
     subThemesData: const FlexSubThemesData(
       blendOnLevel: 10,
       blendOnColors: false,
+      textButtonSchemeColor: SchemeColor.onPrimaryContainer,
+      elevatedButtonRadius: 3.0,
+      elevatedButtonSchemeColor: SchemeColor.onPrimary,
+      elevatedButtonSecondarySchemeColor: SchemeColor.surfaceTint,
+      outlinedButtonSchemeColor: SchemeColor.onPrimaryContainer,
+      toggleButtonsSchemeColor: SchemeColor.onPrimaryContainer,
       inputDecoratorIsFilled: false,
       inputDecoratorBorderType: FlexInputBorderType.underline,
       inputDecoratorUnfocusedBorderIsColored: false,
       inputDecoratorFocusedBorderWidth: 2.0,
+      fabUseShape: true,
+      fabAlwaysCircular: true,
       bottomNavigationBarElevation: 8.5,
       bottomNavigationBarShowUnselectedLabels: false,
       navigationBarIndicatorSchemeColor: SchemeColor.outline,
@@ -74,7 +92,8 @@ class MyThemes{
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: true,
-
+    // To use the playground font, add GoogleFonts package and uncomment
+    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
 }
