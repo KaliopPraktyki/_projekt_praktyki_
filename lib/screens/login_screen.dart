@@ -29,6 +29,12 @@ class _loginscreenState extends State<loginscreen> {
     super.dispose();
   }
 
+  late bool _passwordVisible;
+
+  void initState() {
+    _passwordVisible = false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +50,7 @@ class _loginscreenState extends State<loginscreen> {
                 Padding(padding: EdgeInsets.only(top: 150),),
                 Text('Welcome',
                   style: TextStyle(
+                    fontFamily: 'Spoof',
                     fontSize: 40,
                   ),
                 ),
@@ -67,11 +74,28 @@ class _loginscreenState extends State<loginscreen> {
                       ),
                       Padding(padding: EdgeInsets.symmetric(vertical: 20),),
                       TextFormField(
-                        obscureText: true,
+                        keyboardType: TextInputType.text,
                         controller: _passwordController,
-                        decoration: const InputDecoration(
-                          border: UnderlineInputBorder(),
-                          labelText: 'Enter your password',
+                        obscureText: !_passwordVisible,//This will obscure text dynamically
+                        decoration: InputDecoration(
+                          labelText: 'Password',
+                          hintText: 'Enter your password',
+                          // Here is key idea
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              // Based on passwordVisible state choose the icon
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Theme.of(context).primaryColorDark,
+                            ),
+                            onPressed: () {
+                              // Update the state i.e. toogle the state of passwordVisible variable
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                          ),
                         ),
                       ),
                     ],
@@ -111,7 +135,7 @@ class _loginscreenState extends State<loginscreen> {
 
                   Row(
                     children: [
-                      Padding(padding: EdgeInsets.only(left: 40),),
+                      Padding(padding: EdgeInsets.only(left: 30),),
                       Text('Not a member?'),
 
                       TextButton(onPressed: () {
@@ -119,7 +143,7 @@ class _loginscreenState extends State<loginscreen> {
                       },
                         child: GestureDetector(
                           onTap: widget.showRegisterPage,
-                          child: Text('Register now!',
+                          child: Text('Register now.',
                             style: TextStyle(
                               fontSize: 15,
                             ),
