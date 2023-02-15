@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
         child: GNav(
-          tabBackgroundColor: Colors.grey[300]!,
+          tabBackgroundColor:Theme.of(context).focusColor,
           gap: 8,
           padding: const EdgeInsets.all(16),
           selectedIndex: _selectedIndex,
