@@ -38,7 +38,7 @@ class ThemeChanger extends StatelessWidget {
         Text(title,
         style: const TextStyle(
           fontFamily: 'Spoof',
-          fontSize: 22,
+          fontSize: 20,
         ),
         ),
         const SizedBox(width: 10,),
