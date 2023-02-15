@@ -84,7 +84,7 @@ class _ScheduleState extends State<Schedule> {
                   ),
                   selectedTextStyle: TextStyle(color: Colors.white),
                   todayDecoration: BoxDecoration(
-                    color: Colors.purpleAccent,
+                    color: Colors.blue,
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
@@ -104,6 +104,9 @@ class _ScheduleState extends State<Schedule> {
                   formatButtonDecoration: BoxDecoration(
                     color: Theme.of(context).secondaryHeaderColor,
                     borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  formatButtonTextStyle: TextStyle(
+                    color: Colors.white,
                   ),
                 ),
               ),
@@ -136,7 +139,6 @@ class _ScheduleState extends State<Schedule> {
             child: Text("Ok"),
             onPressed: () {
               if (_eventController.text.isEmpty) {
-
               } else {
                 if (selectedEvents[selectedDay] != null) {
                   selectedEvents[selectedDay]?.add(
@@ -158,8 +160,15 @@ class _ScheduleState extends State<Schedule> {
         ],
       ),
     ),
-    label: Text("Add Event"),
-    icon: Icon(Icons.add),
+    label: Text(
+      "Add Event",
+      style: TextStyle(
+      color: Colors.white,
+    ),
+    ),
+    icon: Icon(
+        color: Colors.white,
+        Icons.add),
     ),
     );
 
