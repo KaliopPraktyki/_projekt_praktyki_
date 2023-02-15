@@ -3,13 +3,12 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 class ThemeProvider extends ChangeNotifier{
   ThemeMode themeMode = ThemeMode.light;
-
   bool get isDarkMode => themeMode == ThemeMode.dark;
-
   void toggleTheme(bool isOn){
     themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
+  
 }
 
 class MyThemes{

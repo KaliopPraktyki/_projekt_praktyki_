@@ -4,8 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
 
-
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -40,7 +38,6 @@ class MyApp extends StatelessWidget {
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
           home: const MainPage(),
-
         );
       }
   );
