@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 180),),
+                const Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(top: 180),),
+                const Padding(padding: EdgeInsets.only(top: 180),),
                 Container(
                     width: 350,
                     height: 150,
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child:
                     Padding(
-                      padding: EdgeInsets.only(left:20, top:20, bottom: 5, right: 10),
+                      padding: const EdgeInsets.only(left:20, top:20, bottom: 5, right: 10),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
