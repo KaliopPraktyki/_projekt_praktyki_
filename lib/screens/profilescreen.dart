@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: SizedBox(width: 200,
                       child: IconButton(
-                        iconSize: 40,
+                        iconSize: 30,
                         icon: const Icon(Ionicons.settings),
                         onPressed: () {
                           Navigator.push(
@@ -120,13 +120,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             top: 80,
                           ),
                           child: Container(
-                            decoration: BoxDecoration(border: Border.all(width: 2),
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Theme.of(context).secondaryHeaderColor,),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
                             },
-                              child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                              child: Text('Log out', style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
                             ),
                           ),
                         ),
