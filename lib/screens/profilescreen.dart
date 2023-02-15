@@ -36,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: SizedBox(width: 200,
                       child: IconButton(
                         iconSize: 40,
-                        icon: const Icon(Icons.settings),
+                        icon: const Icon(Ionicons.settings),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -109,9 +109,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(height: 26,),
-                      listProfile(Icons.person, "Full Name", "Your Name"),
-                      listProfile(Icons.location_pin, "Location", "Adress"),
-                      listProfile(Icons.male, "Gender", "Male/Female"),
+                      listProfile(Ionicons.person, "Full Name", "Your Name"),
+                      listProfile(Ionicons.locate, "Location", "Adress"),
+                      listProfile(Ionicons.male, "Gender", "Male/Female"),
 
                       SizedBox(width: 200,
                         child:
