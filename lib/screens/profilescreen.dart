@@ -74,15 +74,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "Name",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black87,
-                      fontSize: 16,
+                      fontSize: 19,
                     ),
                   ),
                   const Text(
                     "Profession",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black54,
                       fontSize: 16,
                     ),
                   ),
@@ -93,12 +91,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 6,
               child: Container(
                 padding: const EdgeInsets.only(
-
                   left: 24,
                   right: 24,
                 ),
                 decoration: const BoxDecoration(
-                  color: Colors.white54,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
@@ -162,7 +158,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text1,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontSize: 14,
                 ),
@@ -170,7 +165,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text2,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
