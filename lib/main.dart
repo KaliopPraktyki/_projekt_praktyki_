@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:loginscreen/screens/login_screen.dart';
-import 'package:loginscreen/screens/settings_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
-import 'l10n/l10n.dart';
 
 
 
@@ -43,7 +39,6 @@ class MyApp extends StatelessWidget {
           themeMode: themeProvider.themeMode,
           theme: MyThemes.lightTheme,
           darkTheme: MyThemes.darkTheme,
-          supportedLocales: L10n.all,
           home: const MainPage(),
 
         );

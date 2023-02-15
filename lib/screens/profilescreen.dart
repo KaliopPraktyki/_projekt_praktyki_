@@ -110,10 +110,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       const SizedBox(height: 26,),
                       listProfile(Icons.person, "Full Name", "Your Name"),
-                      listProfile(Icons.date_range, "Age", "Month XX, XXXX"),
                       listProfile(Icons.location_pin, "Location", "Adress"),
                       listProfile(Icons.male, "Gender", "Male/Female"),
-                      listProfile(Icons.phone, "Phone Number", "111 111 111"),
 
                       SizedBox(width: 200,
                         child:
