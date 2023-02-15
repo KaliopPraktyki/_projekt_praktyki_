@@ -38,12 +38,21 @@ class _RegisterPageState extends State<RegisterPage> {
         password: _passwordController.text.trim(),
       );
       //add user details
-
+      addUserDetails(
+          _firstNameController.text.trim(),
+          _lastNameController.text.trim(),
+          _emailController.text.trim()
+      );
     }
   }
 
-    Future addUserDetails(String firstName, String lastName, String email, int age, int phoneNumber) async {
-      await FirebaseFirestore.instance.collection('users').add({});
+    Future addUserDetails(
+        String firstName, String lastName, String email,) async {
+      await FirebaseFirestore.instance.collection('users').add({
+        'first name': firstName,
+        'last name': lastName,
+        'email': email,
+      });
     }
 
   bool passwordConfirmed() {
@@ -90,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
               Stack(
                 children: [
                   Container(
-                    height: 470,
+                    height: 420,
                     width: 300,
 
                     child: Column(
@@ -106,7 +115,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
 
                         //last name
-                        Padding(padding: EdgeInsets.only(top: 5)),
+                        Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _lastNameController,
                           decoration: const InputDecoration(
@@ -116,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
 
                         //email
-
+                        Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _emailController,
                           decoration: const InputDecoration(
