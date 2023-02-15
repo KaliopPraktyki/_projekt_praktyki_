@@ -14,6 +14,7 @@ class ThemeProvider extends ChangeNotifier{
 
 class MyThemes{
   static final darkTheme = FlexThemeData.dark(
+
     colors: const FlexSchemeColor(
       primary: Color(0xffbbcae5),
       primaryContainer: Color(0xff577cbf),
