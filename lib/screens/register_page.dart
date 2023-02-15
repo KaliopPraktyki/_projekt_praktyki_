@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
-
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
 
   @override
 
@@ -22,17 +24,27 @@ class _RegisterPageState extends State<RegisterPage> {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmpasswordController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
     super.dispose();
   }
 
   Future signUp () async {
+
     if(passwordConfirmed()) {
+      //create user
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      //add user details
+
     }
   }
+
+    Future addUserDetails(String firstName, String lastName, String email, int age, int phoneNumber) async {
+      await FirebaseFirestore.instance.collection('users').add({});
+    }
 
   bool passwordConfirmed() {
     if(_passwordController.text.trim() == _confirmpasswordController.text.trim()){
@@ -61,10 +73,11 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Padding(padding: EdgeInsets.only(top: 30),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 150),),
+                  Padding(padding: EdgeInsets.only(top: 180),),
                   Text('Join now',
                     style: TextStyle(
                       fontFamily: 'Spoof',
@@ -77,12 +90,30 @@ class _RegisterPageState extends State<RegisterPage> {
               Stack(
                 children: [
                   Container(
-                    height: 550,
+                    height: 470,
                     width: 300,
 
                     child: Column(
                       children: [
 
+                        //first name
+                        TextFormField(
+                          controller: _firstNameController,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            labelText: 'First Name',
+                          ),
+                        ),
+
+                        //last name
+                        Padding(padding: EdgeInsets.only(top: 5)),
+                        TextFormField(
+                          controller: _lastNameController,
+                          decoration: const InputDecoration(
+                            border: UnderlineInputBorder(),
+                            labelText: 'Last Name',
+                          ),
+                        ),
 
                         //email
 
@@ -103,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             //password
 
-                            Padding(padding: EdgeInsets.symmetric(vertical: 10),),
+                            Padding(padding: EdgeInsets.symmetric(vertical: 5),),
                             TextFormField(
                               onChanged: (value){
                                 _password = value;
@@ -142,7 +173,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             //confirm password
 
-                            Padding(padding: EdgeInsets.only(top: 20),),
+                            Padding(padding: EdgeInsets.only(top: 15),),
                             TextFormField(
                               onChanged: (value){
                                 _confirmPassword = value;
@@ -183,45 +214,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ],
                         ),
                         ),
-                        //first name
-                        Padding(padding: EdgeInsets.only(top: 20)),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            border: UnderlineInputBorder(),
-                            labelText: 'First Name',
-                          ),
-                        ),
 
-                        //last name
-                        Padding(padding: EdgeInsets.only(top: 20)),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            border: UnderlineInputBorder(),
-                            labelText: 'Last Name',
-                          ),
-                        ),
-
-                        //Age
-                        Padding(padding: EdgeInsets.only(top: 20)),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            border: UnderlineInputBorder(),
-                            labelText: 'Age',
-                          ),
-                        ),
-
-                        //Phone Number
-                        Padding(padding: EdgeInsets.only(top: 20)),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            border: UnderlineInputBorder(),
-                            labelText: 'Phone Number',
-                          ),
-                        ),
 
                       ],
                     ),
@@ -230,7 +223,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 2),
                 child: SizedBox(
                   width: 300,
                   height: 50,
