@@ -1,6 +1,6 @@
-# Projekt Praktyki
+# Project Praktyki
 
-A new Flutter project.
+3M2K Project
 
 ## Getting Started
 
