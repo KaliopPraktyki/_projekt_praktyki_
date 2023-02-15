@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 
 import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
+import 'package:loginscreen/screens/schedule.dart';
 import 'package:loginscreen/screens/todo_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
 
   List<Widget> _screens = [
     HomeScreen(),
+    Schedule(),
     to_do(),
     ProfileScreen(),
   ];
