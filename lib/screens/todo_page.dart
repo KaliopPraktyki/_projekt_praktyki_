@@ -40,10 +40,7 @@ class _to_doState extends State<to_do> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("All ToDos",
-          style: TextStyle(color: Colors.black),),
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white,
+        title: const Text("All ToDos",),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(

@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:loginscreen/provider/theme_provider.dart';
 
-class ThemeChanger extends StatelessWidget {
+class LanguageChanger extends StatelessWidget {
   final Color color;
   final IconData icon;
   final Color iconColor;
   final String title;
-  const ThemeChanger({
+  const LanguageChanger({
     Key? key,
     required this.color,
     required this.icon,
@@ -36,25 +34,27 @@ class ThemeChanger extends StatelessWidget {
         ),
         const SizedBox(width: 10,),
         Text(title,
-        style: const TextStyle(
-          fontFamily: 'Spoof',
-          fontSize: 20,
-        ),
+          style: const TextStyle(
+            fontFamily: 'Spoof',
+            fontSize: 20,
+          ),
         ),
         const SizedBox(width: 10,),
         const Spacer(),
-        Consumer<ThemeNotifier>(
-            builder: (context, notifier,child) =>
-        Transform.scale(
-          scale: 0.8,
-          child: CupertinoSwitch(
-              activeColor: const Color.fromARGB(255, 45,155,240),
-              value:notifier.darkTheme,
-              onChanged: (val){
-                notifier.toggleTheme();
-              }
+        PopupMenuButton(itemBuilder: (context) =>[
+          const PopupMenuItem(
+              child: Text('English')
           ),
-        )
+          const PopupMenuItem(
+              child: Text('Deutsch')
+          ),
+          const PopupMenuItem(
+              child:Text('Polski')
+          ),
+          const PopupMenuItem(
+              child: Text('Українська')
+          ),
+        ]
         ),
       ],
     );

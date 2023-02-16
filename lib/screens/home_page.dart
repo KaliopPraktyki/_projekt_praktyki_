@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
-
 import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
+import 'package:loginscreen/screens/schedule.dart';
 import 'package:loginscreen/screens/todo_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,10 +20,11 @@ class _HomePageState extends State<HomePage> {
   //current index
   int _selectedIndex = 0;
 
-  List<Widget> _screens = [
-    HomeScreen(),
-    todo(),
-    ProfileScreen(),
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const Schedule(),
+    to_do(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -34,9 +35,9 @@ class _HomePageState extends State<HomePage> {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
         child: GNav(
-          tabBackgroundColor: Colors.grey[300]!,
+          tabBackgroundColor:Theme.of(context).focusColor,
           gap: 8,
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           selectedIndex: _selectedIndex,
           onTabChange: (i) {
             setState(() {

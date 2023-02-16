@@ -34,8 +34,7 @@ class SettingsTile extends StatelessWidget {
         Text(title,
           style: const TextStyle(
               fontFamily: 'Spoof',
-              fontSize: 18,
-              fontWeight: FontWeight.bold
+              fontSize: 20,
           ),
         ),
         const SizedBox(width: 10),

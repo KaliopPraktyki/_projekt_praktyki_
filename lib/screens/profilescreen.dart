@@ -35,8 +35,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: SizedBox(width: 200,
                       child: IconButton(
-                        iconSize: 40,
-                        icon: const Icon(Icons.settings),
+                        iconSize: 30,
+                        icon: const Icon(Ionicons.settings),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -50,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 120,
                     width: 120,
                     margin: const EdgeInsets.only(
-                      top: 50,
+                      top: 30,
                       bottom: 8,
                     ),
                     decoration: BoxDecoration(
@@ -74,15 +74,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "Name",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black87,
-                      fontSize: 16,
+                      fontSize: 19,
                     ),
                   ),
                   const Text(
                     "Profession",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black54,
                       fontSize: 16,
                     ),
                   ),
@@ -93,47 +91,46 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 6,
               child: Container(
                 padding: const EdgeInsets.only(
-
                   left: 24,
                   right: 24,
                 ),
                 decoration: const BoxDecoration(
-                  color: Colors.white54,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
                   ),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 26,),
-                    listProfile(Icons.person, "Full Name", "Your Name"),
-                    listProfile(Icons.date_range, "Date of Birth", "Month XX, XXXX"),
-                    listProfile(Icons.location_pin, "Location", "Adress"),
-                    listProfile(Icons.male, "Gender", "Male/Female"),
-                    listProfile(Icons.phone, "Phone Number", "111 111 111"),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 26,),
+                      listProfile(Ionicons.person, "Full Name", "Your Name"),
+                      listProfile(Ionicons.locate, "Location", "Adress"),
+                      listProfile(Ionicons.male, "Gender", "Male/Female"),
 
-                    SizedBox(width: 200,
-                      child:
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 80,
-                        ),
-                        child: Container(
-                          decoration: BoxDecoration(border: Border.all(width: 2),
-                            borderRadius: BorderRadius.circular(20),
+                      SizedBox(width: 200,
+                        child:
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 80,
                           ),
-                          child: MaterialButton(onPressed: (){
-                            FirebaseAuth.instance.signOut();
-                          },
-                            child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Theme.of(context).secondaryHeaderColor,),
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextButton(onPressed: (){
+                              FirebaseAuth.instance.signOut();
+                            },
+                              child: Text('Log out', style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
+                            ),
                           ),
                         ),
-                      ),
-                    )
+                      )
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -161,7 +158,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text1,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontSize: 14,
                 ),
@@ -169,7 +165,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text2,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
