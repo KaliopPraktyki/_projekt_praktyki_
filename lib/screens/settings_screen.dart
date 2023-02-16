@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 
@@ -24,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children:  const [
               ThemeChanger(
                 color: Colors.black,
                 icon: Ionicons.moon,
@@ -72,14 +73,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     fontFamily: 'Spoof',
                     fontSize: 25,
                     color: Color.fromARGB(255, 128, 128, 128)
-                ),),
+                ),
+              ),
               SizedBox(height: 25,),
-               SettingsTile(
+              LanguageChanger(
                 color: Color.fromARGB(200, 250, 199, 16),
                 icon: Ionicons.language,
                 title: 'Language',
                 iconColor: Colors.black54,
               ),
+
             ],
           ),
         ),
