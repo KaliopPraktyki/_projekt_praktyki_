@@ -152,7 +152,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 if (value != null && value.isEmpty) {
                                   return 'Password is required please enter';
                                 }else if(_password.length < 6){
-                                  return 'Min password lenght is 6';
+                                  return 'Min. lenght password is 6';
                                 }
                                   else
                                 return null;
