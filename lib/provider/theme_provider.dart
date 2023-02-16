@@ -82,15 +82,22 @@ ThemeData light = FlexThemeData.light(
   );
 
 class ThemeNotifier extends ChangeNotifier {
-  final String key = "theme";
+  String key = "theme";
   late SharedPreferences _prefs;
   late bool _darkTheme;
 
   bool get darkTheme => _darkTheme;
 
+  _initPrefs() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
+
   ThemeNotifier() {
-    _darkTheme = false;
-    _loadFromPrefs();
+    if(_loadFromPrefs() == true){
+      _darkTheme = true;
+    }else{
+      _darkTheme = false;
+    }
   }
 
   toggleTheme() {
@@ -99,10 +106,6 @@ class ThemeNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  _initPrefs() async {
-    if(_prefs == null)
-      _prefs = await SharedPreferences.getInstance();
-  }
 
   _loadFromPrefs() async {
     await _initPrefs();
@@ -110,7 +113,7 @@ class ThemeNotifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  _saveToPrefs()async {
+  _saveToPrefs() async {
     await _initPrefs();
     _prefs.setBool(key, _darkTheme);
   }
