@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: SizedBox(width: 200,
                       child: IconButton(
-                        iconSize: 40,
+                        iconSize: 30,
                         icon: const Icon(Ionicons.settings),
                         onPressed: () {
                           Navigator.push(
@@ -74,15 +74,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     "Name",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black87,
-                      fontSize: 16,
+                      fontSize: 19,
                     ),
                   ),
                   const Text(
                     "Profession",
                     style: TextStyle(
                       fontFamily: "Spoof-regular",
-                      color: Colors.black54,
                       fontSize: 16,
                     ),
                   ),
@@ -93,12 +91,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               flex: 6,
               child: Container(
                 padding: const EdgeInsets.only(
-
                   left: 24,
                   right: 24,
                 ),
                 decoration: const BoxDecoration(
-                  color: Colors.white54,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(50),
                     topRight: Radius.circular(50),
@@ -120,13 +116,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             top: 80,
                           ),
                           child: Container(
-                            decoration: BoxDecoration(border: Border.all(width: 2),
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 2, color: Theme.of(context).secondaryHeaderColor,),
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
                             },
-                              child: Text('Log out', style: TextStyle(color: Colors.grey[400], fontSize: 18,),),
+                              child: Text('Log out', style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
                             ),
                           ),
                         ),
@@ -161,7 +158,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text1,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontSize: 14,
                 ),
@@ -169,7 +165,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text2,
                 style: const TextStyle(
-                  color: Colors.black87,
                   fontFamily: "Spoof-regular",
                   fontWeight: FontWeight.bold,
                   fontSize: 16,

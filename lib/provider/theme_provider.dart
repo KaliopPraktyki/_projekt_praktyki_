@@ -1,19 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeProvider extends ChangeNotifier{
-  ThemeMode themeMode = ThemeMode.light;
-
-  bool get isDarkMode => themeMode == ThemeMode.dark;
-
-  void toggleTheme(bool isOn){
-    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
-    notifyListeners();
-  }
-}
-
-class MyThemes{
-  static final darkTheme = FlexThemeData.dark(
+ThemeData dark = FlexThemeData.dark(
     colors: const FlexSchemeColor(
       primary: Color(0xffbbcae5),
       primaryContainer: Color(0xff577cbf),
@@ -51,11 +40,9 @@ class MyThemes{
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: true,
-    // To use the Playground font, add GoogleFonts package and uncomment
-    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
-  static final lightTheme = FlexThemeData.light(
+ThemeData light = FlexThemeData.light(
     colors: const FlexSchemeColor(
       primary: Color(0xff1145a4),
       primaryContainer: Color(0xff9fb4da),
@@ -92,8 +79,40 @@ class MyThemes{
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: true,
-    // To use the playground font, add GoogleFonts package and uncomment
-    // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
+
+class ThemeNotifier extends ChangeNotifier {
+  final String key = "theme";
+  late SharedPreferences _prefs;
+  late bool _darkTheme;
+
+  bool get darkTheme => _darkTheme;
+
+  ThemeNotifier() {
+    _darkTheme = false;
+    _loadFromPrefs();
+  }
+
+  toggleTheme() {
+    _darkTheme = !_darkTheme;
+    _saveToPrefs();
+    notifyListeners();
+  }
+
+  _initPrefs() async {
+    if(_prefs == null)
+      _prefs = await SharedPreferences.getInstance();
+  }
+
+  _loadFromPrefs() async {
+    await _initPrefs();
+    _darkTheme = _prefs.getBool(key) ?? true;
+    notifyListeners();
+  }
+
+  _saveToPrefs()async {
+    await _initPrefs();
+    _prefs.setBool(key, _darkTheme);
+  }
 
 }
