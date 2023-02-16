@@ -12,6 +12,35 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final user = FirebaseAuth.instance.currentUser!;
 
+  String? email = '';
+  String? firstName = '';
+  String? lastName = '';
+
+  Future _getDataFromDatabase() async {
+    await FirebaseFirestore.instance.collection("users")
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get()
+        .then((snapshot) async {
+        if(snapshot.exists)
+          {
+            setState(() {
+              email = snapshot.data()!["email"];
+              firstName = snapshot.data()!["first name"];
+              lastName = snapshot.data()!["last name"];
+            });
+          }
+    });
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getDataFromDatabase();
+    print("name" + firstName!);
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
