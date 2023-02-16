@@ -35,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     child: SizedBox(width: 200,
                       child: IconButton(
-                        iconSize: 30,
+                        iconSize: 25,
                         icon: const Icon(Ionicons.settings),
                         onPressed: () {
                           Navigator.push(
