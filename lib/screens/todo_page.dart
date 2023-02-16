@@ -11,30 +11,15 @@ class to_do extends StatefulWidget {
 }
 
 class _to_doState extends State<to_do> {
+
   //List todo = List();
 
-  String input = "";
+  bool? isChecked = false;
 
+  String input = "";
   var todo = ["Uśmiechnij się!"];
 
-  // createTodo() {
-  //   DocumentReference documentReference =
-  //     Firestore.instance.collection("All ToDos").document(input);
-  //
-  // }
-
-  // deletetodo() {
-  //
-  // }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   todo.add("item1");
-  //   todo.add("item2");
-  //   todo.add("item3");
-  //   todo.add("item4");
-  // }
+  bool? value = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +65,7 @@ class _to_doState extends State<to_do> {
           itemBuilder: (BuildContext context, int index) {
             return Dismissible(
                 key: Key(todo[index]),
-                child: Slidable (
+              child: Slidable (
                   startActionPane: ActionPane(
                     motion: const BehindMotion(),
                     children: [
@@ -90,26 +75,41 @@ class _to_doState extends State<to_do> {
                               todo.removeAt(index);
                             });
                           }),
+                          label: "DELETE",
                           icon: Icons.delete,
                           backgroundColor: Colors.red,
                       ),
                     ],
                   ),
+                child:
+                  Stack(
+                    children: [
+                      Card(
+                        elevation: 2,
+                        margin: EdgeInsets.all(8),
+                        shape: RoundedRectangleBorder(borderRadius:
+                        BorderRadius.circular(8)),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child:  ListTile(
+                            title: Text(todo[index]),
+                          ),
+                        ),
+                      ),
 
-                child: Card(
-                  elevation: 2,
-                  margin: EdgeInsets.all(8),
-                  shape: RoundedRectangleBorder(borderRadius:
-                  BorderRadius.circular(8)),
-                  child: ListTile(
-                    title: Text(todo[index]),
-
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 11.0),
+                        child: Checkbox(
+                            value: value,
+                            onChanged: (value) => setState(() => this.value = value!),
+                        ),
+                      ),
+                    ],
                   ),
-                )),
+              ),
             );
-          }),
+          }
+          ),
     );
   }
 }
-
-
