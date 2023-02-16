@@ -151,8 +151,10 @@ class _RegisterPageState extends State<RegisterPage> {
                               validator: (value) {
                                 if (value != null && value.isEmpty) {
                                   return 'Password is required please enter';
+                                }else if(_password.length < 6){
+                                  return 'Min. lenght password is 6';
                                 }
-
+                                  else
                                 return null;
                               },
                               keyboardType: TextInputType.text,
@@ -255,7 +257,7 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
 
               SizedBox(
-                width: 280,
+                width: 300,
                 height: 80,
                 child:
                 Column(
@@ -265,7 +267,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                     Row(
                       children: [
-                        Padding(padding: EdgeInsets.only(left: 8),),
+                        Padding(padding: EdgeInsets.only(left: 12),),
                         Text('Are you already a member?'),
 
                         TextButton(onPressed: () {
