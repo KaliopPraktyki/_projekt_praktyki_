@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/provider/theme_provider.dart';
+import 'l10n/l10n.dart';
 
 
 
@@ -25,9 +26,11 @@ class MyApp extends StatelessWidget {
         builder: (context, ThemeNotifier notifier, child) {
 
           return MaterialApp(
+
             debugShowCheckedModeBanner: false,
             title: 'Project Praktyki',
             theme: notifier.darkTheme ? dark : light,
+            supportedLocales: L10n.all,
             home: const MainPage(),
           );
         } ,
