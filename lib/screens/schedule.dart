@@ -112,7 +112,7 @@ class _ScheduleState extends State<Schedule> {
               ),
               Text(
                   'Events',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               ..._getEventsfromDay(selectedDay).map(
                     (Event event) => ListTile(
