@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
 import 'settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -64,7 +63,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           blurRadius: 10,
                         ),
                       ],
-                      image: DecorationImage(
+                      image: const DecorationImage(
                         image: AssetImage(
                           "assets/images/icon.png",
                         ),

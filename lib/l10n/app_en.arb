@@ -30,5 +30,8 @@
     "confirm": "Confirm Password",
     "signup": "Sign Up",
     "member": "Are you already a member?",
-    "loginnow": "Login now"
+    "loginnow": "Login now",
+    "add": "Add",
+    "addtodo": "Add Todo"
+
 }

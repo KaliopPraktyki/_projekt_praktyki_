@@ -30,5 +30,7 @@
     "confirm": "Potwierdź hasło",
     "signup": "Zarejestruj się",
     "member": "Jesteś członkiem?",
-    "loginnow": "Zaloguj się"
+    "loginnow": "Zaloguj się",
+    "addtodo": "Dodaj ToDo",
+    "add": "Dodaj"
 }

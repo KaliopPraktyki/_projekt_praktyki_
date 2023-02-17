@@ -17,29 +17,28 @@ class _HomeScreenState extends State<HomeScreen> {
   String? firstName = '';
   String? lastName = '';
 
+
   Future _getDataFromDatabase() async {
-    await FirebaseFirestore.instance.collection("users")
+
+    await FirebaseFirestore.instance.collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get()
         .then((snapshot) async {
-        if(snapshot.exists)
-          {
-            setState(() {
-              email = snapshot.data()!["email"];
-              firstName = snapshot.data()!["first name"];
-              lastName = snapshot.data()!["last name"];
-            });
-          }
+              final data = snapshot.data()!;
+              email = data['email'];
+              firstName = data['first name'];
+              lastName = data['last name'];
     });
 
+    print("name: ${firstName!}");
+    print("lastname: ${lastName!}");
+    print("email: ${email!}");
   }
 
   @override
   void initState() {
-    super.initState();
     _getDataFromDatabase();
-    print("name" + firstName!);
-
+    super.initState();
   }
 
   @override
@@ -62,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.only(top: 20 ),),
                         Text(
                           AppLocalizations.of(context)!.welcome,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 25),
                         ),
                         Text(
@@ -136,7 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Padding(
-                        padding: EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
+                        padding: const EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Padding(
-                        padding: EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
+                        padding: const EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
