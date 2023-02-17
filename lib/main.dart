@@ -25,80 +25,28 @@ class MyApp extends StatelessWidget {
    return MultiProvider(
        providers: [
         ChangeNotifierProvider<LocaleProvider>(create: (context) => LocaleProvider(),),
-        ChangeNotifierProvider<ThemeNotifier>(create: (_) => ThemeNotifier()),
+        ChangeNotifierProvider<ThemeNotifier>(create: (context) => ThemeNotifier()),
        ],
-
-          builder:(context,child){
-            final provider = Provider.of<LocaleProvider>(context);
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              locale: provider.locale,
-              supportedLocales: L10n.all,
-              localizationsDelegates: const [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate
-              ],
-              home: const MainPage(),
-            );
-          } ,
+     builder: (context,child){
+       final provider = Provider.of<LocaleProvider>(context);
+       final notifier = Provider.of<ThemeNotifier>(context);
+       return MaterialApp(
+         debugShowCheckedModeBanner: false,
+         locale: provider.locale,
+         supportedLocales: L10n.all,
+         localizationsDelegates: const [
+         AppLocalizations.delegate,
+         GlobalMaterialLocalizations.delegate,
+         GlobalCupertinoLocalizations.delegate,
+         GlobalWidgetsLocalizations.delegate
+         ],
+         title: 'Project Praktyki',
+         theme: notifier.darkTheme ? dark : light,
+         home: const MainPage(),
+       );
+     },
 
 
    );
-    // return MultiProvider(
-    //     providers: [
-    //      ChangeNotifierProvider<LocaleProvider>(
-    //         create: (context)=> LocaleProvider(),
-    //         builder: (context, child){
-    //           final provider = Provider.of<LocaleProvider>(context);
-    //           return MaterialApp(
-    //             locale: provider.locale,
-    //                   supportedLocales: L10n.all,
-    //                   localizationsDelegates: const [
-    //                     AppLocalizations.delegate,
-    //                     GlobalMaterialLocalizations.delegate,
-    //                     GlobalCupertinoLocalizations.delegate,
-    //                     GlobalWidgetsLocalizations.delegate
-    //                   ],
-    //
-    //           );
-    //         },
-    //       ),
-    //       ChangeNotifierProvider<ThemeNotifier>(
-    //         create: (_)=> ThemeNotifier(),
-    //         child: Consumer<ThemeNotifier>(
-    //           builder: (context, ThemeNotifier notifier, child){
-    //             return MaterialApp(
-    //               debugShowCheckedModeBanner: false,
-    //               title: 'Project Praktyki',
-    //               theme: notifier.darkTheme ? dark : light,
-    //               home: const MainPage(),
-    //             );
-    //           },
-    //         ),
-    //       )
-    //     ],
-
-      // child: Consumer<ThemeNotifier>(
-      //   builder: (context, ThemeNotifier notifier, child) {
-      //     final provider = Provider.of<LocaleProvider>(context);
-      //     MaterialApp(
-      //       debugShowCheckedModeBanner: false,
-      //       title: 'Project Praktyki',
-      //       theme: notifier.darkTheme ? dark : light,
-      //       locale: provider.locale,
-      //       supportedLocales: L10n.all,
-      //       localizationsDelegates: const [
-      //         AppLocalizations.delegate,
-      //         GlobalMaterialLocalizations.delegate,
-      //         GlobalCupertinoLocalizations.delegate,
-      //         GlobalWidgetsLocalizations.delegate
-      //       ],
-      //       home: const MainPage(),
-      //     );
-      //   },
-      // ),
-      // );
   }
 }
