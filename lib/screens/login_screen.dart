@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:validators/validators.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class loginscreen extends StatefulWidget {
   final VoidCallback showRegisterPage;
@@ -57,7 +58,7 @@ class _loginscreenState extends State<loginscreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(padding: EdgeInsets.only(top: 150),),
-                  Text('Welcome',
+                  Text(AppLocalizations.of(context)!.welcome,
                     style: TextStyle(
                       fontFamily: 'Spoof',
                       fontSize: 40,
@@ -91,9 +92,9 @@ class _loginscreenState extends State<loginscreen> {
                               return null;
                             },
 
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               border: UnderlineInputBorder(),
-                              labelText: 'Enter your e-mail',
+                              labelText: AppLocalizations.of(context)!.email,
                             ),
                           ),
                           Padding(padding: EdgeInsets.symmetric(vertical: 20),),
@@ -113,7 +114,7 @@ class _loginscreenState extends State<loginscreen> {
                               return null;
                             },
                             decoration: InputDecoration(
-                              labelText: 'Password',
+                              labelText: AppLocalizations.of(context)!.password,
                               hintText: 'Enter your password',
                               // Here is key idea
                               suffixIcon: IconButton(
@@ -152,7 +153,7 @@ class _loginscreenState extends State<loginscreen> {
                       signIn();
                   }
                   },
-                    child: Text('Login',
+                    child: Text(AppLocalizations.of(context)!.login,
                       style: TextStyle(
                         fontSize: 25,
                       ),
@@ -174,14 +175,14 @@ class _loginscreenState extends State<loginscreen> {
                     Row(
                       children: [
                         Padding(padding: EdgeInsets.only(left: 30),),
-                        Text('Not a member?'),
+                        Text(AppLocalizations.of(context)!.notamember),
 
                         TextButton(onPressed: () {
                           //code
                         },
                           child: GestureDetector(
                             onTap: widget.showRegisterPage,
-                            child: Text('Register now.',
+                            child: Text(AppLocalizations.of(context)!.register,
                               style: TextStyle(
                                 fontSize: 15,
                               ),

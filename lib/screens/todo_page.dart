@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class to_do extends StatefulWidget {
@@ -25,7 +26,7 @@ class _to_doState extends State<to_do> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("All ToDos",),
+        title: Text(AppLocalizations.of(context)!.alltodos,),
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
@@ -75,7 +76,7 @@ class _to_doState extends State<to_do> {
                               todo.removeAt(index);
                             });
                           }),
-                          label: "DELETE",
+                          label: AppLocalizations.of(context)!.delete,
                           icon: Icons.delete,
                           backgroundColor: Colors.red,
                       ),
