@@ -3,6 +3,7 @@ import 'package:ionicons/ionicons.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -17,7 +18,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings',
+        title: Text(
+        AppLocalizations.of(context)!.settings,
         style: TextStyle(fontFamily: 'Spoof',fontSize: 25),),
       ),
       body: SafeArea(
