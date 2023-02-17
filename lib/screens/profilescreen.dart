@@ -73,14 +73,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const Text(
                     "Name",
                     style: TextStyle(
-                      fontFamily: "Spoof-regular",
                       fontSize: 19,
                     ),
                   ),
                   const Text(
                     "Profession",
                     style: TextStyle(
-                      fontFamily: "Spoof-regular",
                       fontSize: 16,
                     ),
                   ),
@@ -158,14 +156,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text1,
                 style: const TextStyle(
-                  fontFamily: "Spoof-regular",
                   fontSize: 14,
                 ),
               ),
               Text(
                 text2,
                 style: const TextStyle(
-                  fontFamily: "Spoof-regular",
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
