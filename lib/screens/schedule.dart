@@ -131,7 +131,7 @@ class _ScheduleState extends State<Schedule> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text(
-            "Add Event",
+          AppLocalizations.of(context)!.addevent,
         ),
         content: TextFormField(
           controller: _eventController,
@@ -165,6 +165,12 @@ class _ScheduleState extends State<Schedule> {
           ),
         ],
       ),
+    ),
+    label: Text(
+      AppLocalizations.of(context)!.addevent,
+      style: TextStyle(
+      color: Colors.white,
+    ),
     ),
     child: Icon(
         color: Colors.white,
