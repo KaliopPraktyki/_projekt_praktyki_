@@ -80,7 +80,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               LanguageChanger(
                 color: Color.fromARGB(200, 250, 199, 16),
                 icon: Ionicons.language,
-                title: AppLocalizations.of(context)!.language,
+                title: AppLocalizations.of(context)!.languageregion,
                 iconColor: Colors.black54,
               ),
 
