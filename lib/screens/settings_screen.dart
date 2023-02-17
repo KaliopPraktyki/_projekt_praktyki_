@@ -28,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children:   [
               ThemeChanger(
-                color: Colors.black,
+                color: Colors.grey[900]!,
                 icon: Ionicons.moon,
                 title:AppLocalizations.of(context)!.darkmode,
                 iconColor: Colors.white,
@@ -44,14 +44,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(200, 12, 167, 137),
                 icon: Ionicons.pencil,
                 title: AppLocalizations.of(context)!.editprofile,
-                iconColor: Colors.black54,
               ),
               const SizedBox(height: 20,),
               SettingsTile(
                 color: const Color.fromARGB(200, 45, 155, 240),
                 icon: Ionicons.lock_closed,
                 title: AppLocalizations.of(context)!.changepassword,
-                iconColor: Colors.black54,
               ),
               const SizedBox(height: 25,),
               Text(AppLocalizations.of(context)!.notifications,
@@ -64,7 +62,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(200, 95, 99, 251),
                 icon: Ionicons.notifications,
                 title: AppLocalizations.of(context)!.notifications,
-                iconColor: Colors.black54,
               ),
               const SizedBox(height: 25,),
               Text(AppLocalizations.of(context)!.regional,
@@ -78,7 +75,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(200, 250, 199, 16),
                 icon: Ionicons.language,
                 title: AppLocalizations.of(context)!.languageregion,
-                iconColor: Colors.black54,
               ),
 
             ],
