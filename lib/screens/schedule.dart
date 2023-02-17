@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../screens/event.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Schedule extends StatefulWidget {
   @override
   State<Schedule> createState() => _ScheduleState();
@@ -111,7 +113,7 @@ class _ScheduleState extends State<Schedule> {
                 ),
               ),
               Text(
-                  'Events',
+                AppLocalizations.of(context)!.events,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
               ..._getEventsfromDay(selectedDay).map(
@@ -124,12 +126,12 @@ class _ScheduleState extends State<Schedule> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text(
-            "Add Event",
+          AppLocalizations.of(context)!.addevent,
         ),
         content: TextFormField(
           controller: _eventController,
@@ -164,10 +166,16 @@ class _ScheduleState extends State<Schedule> {
         ],
       ),
     ),
-    child: Icon(
-        color: Colors.white,
-        Icons.add),
-    ),
+          label: Text(
+            AppLocalizations.of(context)!.addevent,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          icon: Icon(
+              color: Colors.white,
+              Icons.add),
+        ),
     );
 
   }

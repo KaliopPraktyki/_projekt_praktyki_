@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
@@ -87,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(padding: EdgeInsets.only(top: 180),),
-                  Text('Join now',
+                  Text(AppLocalizations.of(context)!.joinnow,
                     style: TextStyle(
                       fontFamily: 'Spoof',
                       fontSize: 40,
@@ -108,9 +109,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         //first name
                         TextFormField(
                           controller: _firstNameController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            labelText: 'First Name',
+                            labelText: AppLocalizations.of(context)!.firstname,
                           ),
                         ),
 
@@ -118,9 +119,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _lastNameController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            labelText: 'Last Name',
+                            labelText: AppLocalizations.of(context)!.lastname,
                           ),
                         ),
 
@@ -128,9 +129,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _emailController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             border: UnderlineInputBorder(),
-                            labelText: 'Enter your e-mail',
+                            labelText: AppLocalizations.of(context)!.email,
                           ),
                         ),
 
@@ -161,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               controller: _passwordController,
                               obscureText: !_passwordVisible,
                               decoration: InputDecoration(
-                                labelText: 'Password',
+                                labelText: AppLocalizations.of(context)!.password,
                                 hintText: 'Enter your password',
                                 // Here is key idea
                                 suffixIcon: IconButton(
@@ -202,7 +203,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               controller: _confirmpasswordController,
                               obscureText: !_passwordVisible,
                               decoration: InputDecoration(
-                                labelText: 'Confirm Password',
+                                labelText: AppLocalizations.of(context)!.confirm,
                                 hintText: 'Enter your password',
                                 // Here is key idea
                                 suffixIcon: IconButton(
@@ -246,7 +247,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         signUp(),
                     }
                     },
-                      child: Text('Sign Up',
+                      child: Text(AppLocalizations.of(context)!.signup,
                         style: TextStyle(
                           fontSize: 25,
                         ),
@@ -268,14 +269,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     Row(
                       children: [
                         Padding(padding: EdgeInsets.only(left: 12),),
-                        Text('Are you already a member?'),
+                        Text(AppLocalizations.of(context)!.member),
 
                         TextButton(onPressed: () {
                           //code
                         },
                           child: GestureDetector(
                             onTap: widget.showLoginPage,
-                            child: Text('Login now',
+                            child: Text(AppLocalizations.of(context)!.loginnow,
                               style: TextStyle(
                                 fontSize: 15,
                               ),

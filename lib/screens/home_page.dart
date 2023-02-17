@@ -6,6 +6,7 @@ import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:loginscreen/screens/schedule.dart';
 import 'package:loginscreen/screens/todo_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage ({Key? key}) : super(key: key);
@@ -44,22 +45,22 @@ class _HomePageState extends State<HomePage> {
               _selectedIndex = i;
             });
           },
-          tabs: const [
+          tabs: [
             GButton(icon:
             Ionicons.home_outline,
-              text: 'Home',
+              text: AppLocalizations.of(context)!.home,
             ),
             GButton(icon:
             Ionicons.calendar_outline,
-              text: 'Schedule',
+              text: AppLocalizations.of(context)!.schedule,
             ),
             GButton(icon:
             Ionicons.list_outline,
-              text: 'Todos',
+              text: AppLocalizations.of(context)!.alltodos,
             ),
             GButton(icon:
             Ionicons.person_outline,
-              text: 'Profile',
+              text: AppLocalizations.of(context)!.profile,
             ),
           ],
         ),
