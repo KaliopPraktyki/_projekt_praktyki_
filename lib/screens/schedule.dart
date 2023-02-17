@@ -126,7 +126,7 @@ class _ScheduleState extends State<Schedule> {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
         onPressed: () => showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -166,16 +166,16 @@ class _ScheduleState extends State<Schedule> {
         ],
       ),
     ),
-    label: Text(
-      AppLocalizations.of(context)!.addevent,
-      style: TextStyle(
-      color: Colors.white,
-    ),
-    ),
-    child: Icon(
-        color: Colors.white,
-        Icons.add),
-    ),
+          label: Text(
+            AppLocalizations.of(context)!.addevent,
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+          icon: Icon(
+              color: Colors.white,
+              Icons.add),
+        ),
     );
 
   }
