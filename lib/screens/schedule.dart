@@ -26,7 +26,7 @@ class _ScheduleState extends State<Schedule> {
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
-  TextEditingController _eventController = TextEditingController();
+  final TextEditingController _eventController = TextEditingController();
 
   @override
   void initState() {
@@ -84,7 +84,7 @@ class _ScheduleState extends State<Schedule> {
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  selectedTextStyle: TextStyle(color: Colors.white),
+                  selectedTextStyle: const TextStyle(color: Colors.white),
                   todayDecoration: BoxDecoration(
                     color: Colors.blue,
                     shape: BoxShape.rectangle,
@@ -107,14 +107,14 @@ class _ScheduleState extends State<Schedule> {
                     color: Theme.of(context).secondaryHeaderColor,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  formatButtonTextStyle: TextStyle(
+                  formatButtonTextStyle: const TextStyle(
                     color: Colors.white,
                   ),
                 ),
               ),
               Text(
                 AppLocalizations.of(context)!.events,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
               ),
               ..._getEventsfromDay(selectedDay).map(
                     (Event event) => ListTile(
@@ -138,11 +138,11 @@ class _ScheduleState extends State<Schedule> {
         ),
         actions: [
           TextButton(
-            child: Text("Cancel"),
+            child: const Text("Cancel"),
             onPressed: () => Navigator.pop(context),
           ),
           TextButton(
-            child: Text("Ok"),
+            child: const Text("Ok"),
             onPressed: () {
               if (_eventController.text.isEmpty) {
               } else {
@@ -168,11 +168,11 @@ class _ScheduleState extends State<Schedule> {
     ),
           label: Text(
             AppLocalizations.of(context)!.addevent,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
-          icon: Icon(
+          icon: const Icon(
               color: Colors.white,
               Icons.add),
         ),

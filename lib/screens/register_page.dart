@@ -83,14 +83,13 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(padding: EdgeInsets.only(top: 30),),
+              const Padding(padding: EdgeInsets.only(top: 30),),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 180),),
+                  const Padding(padding: EdgeInsets.only(top: 180),),
                   Text(AppLocalizations.of(context)!.joinnow,
-                    style: TextStyle(
-                      fontFamily: 'Spoof',
+                    style: const TextStyle(
                       fontSize: 40,
                     ),
                   ),
@@ -110,27 +109,27 @@ class _RegisterPageState extends State<RegisterPage> {
                         TextFormField(
                           controller: _firstNameController,
                           decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: const UnderlineInputBorder(),
                             labelText: AppLocalizations.of(context)!.firstname,
                           ),
                         ),
 
                         //last name
-                        Padding(padding: EdgeInsets.only(top: 10)),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _lastNameController,
                           decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: const UnderlineInputBorder(),
                             labelText: AppLocalizations.of(context)!.lastname,
                           ),
                         ),
 
                         //email
-                        Padding(padding: EdgeInsets.only(top: 10)),
+                        const Padding(padding: EdgeInsets.only(top: 10)),
                         TextFormField(
                           controller: _emailController,
                           decoration: InputDecoration(
-                            border: UnderlineInputBorder(),
+                            border: const UnderlineInputBorder(),
                             labelText: AppLocalizations.of(context)!.email,
                           ),
                         ),
@@ -144,7 +143,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             //password
 
-                            Padding(padding: EdgeInsets.symmetric(vertical: 5),),
+                            const Padding(padding: EdgeInsets.symmetric(vertical: 5),),
                             TextFormField(
                               onChanged: (value){
                                 _password = value;
@@ -155,8 +154,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                 }else if(_password.length < 6){
                                   return 'Min. lenght password is 6';
                                 }
-                                  else
-                                return null;
+                                  else {
+                                  return null;
+                                }
                               },
                               keyboardType: TextInputType.text,
                               controller: _passwordController,
@@ -185,7 +185,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             //confirm password
 
-                            Padding(padding: EdgeInsets.only(top: 15),),
+                            const Padding(padding: EdgeInsets.only(top: 15),),
                             TextFormField(
                               onChanged: (value){
                                 _confirmPassword = value;
@@ -248,7 +248,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     }
                     },
                       child: Text(AppLocalizations.of(context)!.signup,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 25,
                         ),
                       ),
@@ -268,7 +268,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                     Row(
                       children: [
-                        Padding(padding: EdgeInsets.only(left: 12),),
+                        const Padding(padding: EdgeInsets.only(left: 12),),
                         Text(AppLocalizations.of(context)!.member),
 
                         TextButton(onPressed: () {
@@ -277,7 +277,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           child: GestureDetector(
                             onTap: widget.showLoginPage,
                             child: Text(AppLocalizations.of(context)!.loginnow,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15,
                               ),
                             ),

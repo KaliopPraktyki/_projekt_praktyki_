@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -37,7 +35,7 @@ class _to_doState extends State<to_do> {
                 return AlertDialog(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
-                  title: Text("Add ToDo"),
+                  title: Text(AppLocalizations.of(context)!.addtodo),
                   content: TextField(
                     onChanged: (String value) {
                       input = value;
@@ -51,7 +49,7 @@ class _to_doState extends State<to_do> {
                           });
                           Navigator.of(context).pop();
                         },
-                        child: Text("Add"))
+                        child: Text(AppLocalizations.of(context)!.add))
                   ],
                 );
               });

@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: EdgeInsets.only(top: 20 ),),
                         Text(
                           AppLocalizations.of(context)!.welcome,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 25),
                         ),
                         Text(
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Padding(
-                        padding: EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
+                        padding: const EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child:
                       Padding(
-                        padding: EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
+                        padding: const EdgeInsets.only(left:20, top:6, bottom: 5, right: 10),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
