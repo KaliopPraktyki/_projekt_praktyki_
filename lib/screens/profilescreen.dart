@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
 import 'settings_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -105,9 +106,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(height: 26,),
-                      listProfile(Ionicons.person, "Full Name", "Your Name"),
-                      listProfile(Ionicons.locate, "Location", "Adress"),
-                      listProfile(Ionicons.male, "Gender", "Male/Female"),
+                      listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name"),
+                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress"),
+                      listProfile(Ionicons.male, AppLocalizations.of(context)!.gender, "Male/Female"),
 
                       SizedBox(width: 200,
                         child:
@@ -123,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
                             },
-                              child: Text('Log out', style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
+                              child: Text(AppLocalizations.of(context)!.logout, style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
                             ),
                           ),
                         ),
