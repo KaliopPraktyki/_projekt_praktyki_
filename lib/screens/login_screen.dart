@@ -38,13 +38,13 @@ class _loginscreenState extends State<loginscreen> {
 
     String _password = '';
 
+
     final _formKey = GlobalKey<FormState>();
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
 
       body: Center(
 
@@ -69,7 +69,7 @@ class _loginscreenState extends State<loginscreen> {
               Stack(
                 children: [
                   Container(
-                    height: 230,
+                    height: 240,
                     width: 300,
                     child: Form(
                       key: _formKey,
@@ -79,11 +79,18 @@ class _loginscreenState extends State<loginscreen> {
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
                             validator: (value) {
-                              if (value != null && value.isEmpty) {
-                                return 'Please enter email adress';
+
+                              if (value == null || value.isEmpty) {
+                                return 'This field is required';
+                              }
+                              if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Please enter a valid email address"),)
+                                );
                               }
                               return null;
                             },
+
                             decoration: const InputDecoration(
                               border: UnderlineInputBorder(),
                               labelText: 'Enter your e-mail',
