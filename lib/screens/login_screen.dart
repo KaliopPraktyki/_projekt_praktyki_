@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:validators/validators.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class loginscreen extends StatefulWidget {
@@ -57,9 +56,9 @@ class _loginscreenState extends State<loginscreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 150),),
+                  const Padding(padding: EdgeInsets.only(top: 150),),
                   Text(AppLocalizations.of(context)!.welcome,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontFamily: 'Spoof',
                       fontSize: 40,
                     ),
@@ -86,18 +85,18 @@ class _loginscreenState extends State<loginscreen> {
                               }
                               if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text("Please enter a valid email address"),)
+                                  const SnackBar(content: Text("Please enter a valid email address"),)
                                 );
                               }
                               return null;
                             },
 
                             decoration: InputDecoration(
-                              border: UnderlineInputBorder(),
+                              border: const UnderlineInputBorder(),
                               labelText: AppLocalizations.of(context)!.email,
                             ),
                           ),
-                          Padding(padding: EdgeInsets.symmetric(vertical: 20),),
+                          const Padding(padding: EdgeInsets.symmetric(vertical: 20),),
                           TextFormField(
                             keyboardType: TextInputType.text,
                             controller: _passwordController,
@@ -154,7 +153,7 @@ class _loginscreenState extends State<loginscreen> {
                   }
                   },
                     child: Text(AppLocalizations.of(context)!.login,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 25,
                       ),
                     ),
@@ -174,16 +173,15 @@ class _loginscreenState extends State<loginscreen> {
 
                     Row(
                       children: [
-                        Padding(padding: EdgeInsets.only(left: 30),),
+                        const Padding(padding: EdgeInsets.only(left: 20),),
                         Text(AppLocalizations.of(context)!.notamember),
-
                         TextButton(onPressed: () {
                           //code
                         },
                           child: GestureDetector(
                             onTap: widget.showRegisterPage,
                             child: Text(AppLocalizations.of(context)!.register,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15,
                               ),
                             ),
