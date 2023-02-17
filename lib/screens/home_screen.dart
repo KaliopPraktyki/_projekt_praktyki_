@@ -17,29 +17,28 @@ class _HomeScreenState extends State<HomeScreen> {
   String? firstName = '';
   String? lastName = '';
 
+
   Future _getDataFromDatabase() async {
-    await FirebaseFirestore.instance.collection("users")
+
+    await FirebaseFirestore.instance.collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get()
         .then((snapshot) async {
-        if(snapshot.exists)
-          {
-            setState(() {
-              email = snapshot.data()!["email"];
-              firstName = snapshot.data()!["first name"];
-              lastName = snapshot.data()!["last name"];
-            });
-          }
+              final data = snapshot.data()!;
+              email = data['email'];
+              firstName = data['first name'];
+              lastName = data['last name'];
     });
 
+    print("name: ${firstName!}");
+    print("lastname: ${lastName!}");
+    print("email: ${email!}");
   }
 
   @override
   void initState() {
-    super.initState();
     _getDataFromDatabase();
-    print("name" + firstName!);
-
+    super.initState();
   }
 
   @override
