@@ -14,6 +14,7 @@ class VerifyEmailPage extends StatefulWidget {
 
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool isEmailVerified = false;
+  bool canResendEmail = false;
   Timer? timer;
 
   @override
@@ -53,6 +54,10 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     try {
       final user = FirebaseAuth.instance.currentUser!;
       await user.sendEmailVerification();
+
+      setState(() => canResendEmail = false);
+      await Future.delayed(Duration(seconds: 5));
+      setState(() => canResendEmail = true);
     }catch (e) {
       print(e.toString());
     }
@@ -65,5 +70,36 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
       appBar: AppBar(
         title: Text('Verify Email'),
       ),
+      body:  Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('A verification email has been sent to your email',
+            style: TextStyle(
+              fontSize: 20,
+            ),
+              textAlign: TextAlign.center,
+            ),
+          SizedBox(height: 24,),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size.fromHeight(50),
+                ),
+                onPressed: (){
+                  canResendEmail ? sendVerificationEmail() : null;
+                },
+                child: Text('Resent Email'),),
+
+            SizedBox(height: 12,),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size.fromHeight(50),
+              ),
+              onPressed: () => FirebaseAuth.instance.signOut(),
+              child: Text('Cancel'),),
+          ],
+        ),
+    ),
   );
 }
