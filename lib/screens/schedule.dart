@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
-import '../screens/event.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Schedule extends StatefulWidget {
@@ -10,6 +9,13 @@ class Schedule extends StatefulWidget {
   State<Schedule> createState() => _ScheduleState();
   const Schedule({Key? key}) : super(key: key);
 
+}
+
+class Event {
+  final String title;
+  Event({required this.title});
+
+  String toString() => this.title;
 }
 
 class _ScheduleState extends State<Schedule> {
