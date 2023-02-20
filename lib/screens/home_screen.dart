@@ -24,10 +24,11 @@ class _HomeScreenState extends State<HomeScreen> {
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .get()
         .then((snapshot) async {
-              final data = snapshot.data()!;
-              email = data['email'];
-              firstName = data['first name'];
-              lastName = data['last name'];
+          setState(() {
+            email = snapshot.get('email');
+            firstName = snapshot.get('first name');
+            lastName = snapshot.get('last name');
+          });
     });
 
     print("name: ${firstName!}");
