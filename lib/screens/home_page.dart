@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
 import 'package:loginscreen/screens/schedule.dart';
 import 'package:loginscreen/screens/todo_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage ({Key? key}) : super(key: key);
@@ -33,41 +33,36 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar:
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 7.0, vertical: 10),
-        child: GNav(
-          tabBackgroundColor:Theme.of(context).focusColor,
-          gap: 8,
-          padding: const EdgeInsets.all(16),
-          selectedIndex: _selectedIndex,
-          onTabChange: (i) {
-            setState(() {
-              _selectedIndex = i;
-            });
-          },
-          tabs: [
-            GButton(icon:
-            Ionicons.home_outline,
-              text: AppLocalizations.of(context)!.home,
+        BottomNavigationBar(
+          onTap: onTabTapped,
+          currentIndex: _selectedIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon : const Icon(Ionicons.home_outline),
+              label: AppLocalizations.of(context)!.home,
             ),
-            GButton(icon:
-            Ionicons.calendar_outline,
-              text: AppLocalizations.of(context)!.schedule,
+            BottomNavigationBarItem(
+              icon : const Icon(Ionicons.calendar_outline),
+              label: AppLocalizations.of(context)!.schedule,
             ),
-            GButton(icon:
-            Ionicons.list_outline,
-              text: AppLocalizations.of(context)!.alltodos,
+            BottomNavigationBarItem(
+              icon : const Icon(Ionicons.list_outline),
+              label: AppLocalizations.of(context)!.alltodos,
             ),
-            GButton(icon:
-            Ionicons.person_outline,
-              text: AppLocalizations.of(context)!.profile,
+            BottomNavigationBarItem(
+              icon : const Icon(Ionicons.person_outline),
+              label: AppLocalizations.of(context)!.profile,
             ),
           ],
-        ),
-      ),
-
+        )
     );
   }
+  void onTabTapped(int index){
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
 
 }
-  
+

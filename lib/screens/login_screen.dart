@@ -59,7 +59,6 @@ class _loginscreenState extends State<loginscreen> {
                   const Padding(padding: EdgeInsets.only(top: 150),),
                   Text(AppLocalizations.of(context)!.welcome,
                     style: const TextStyle(
-                      fontFamily: 'Spoof',
                       fontSize: 40,
                     ),
                   ),

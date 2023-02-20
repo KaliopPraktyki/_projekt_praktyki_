@@ -7,14 +7,12 @@ import 'package:provider/provider.dart';
 class LanguageChanger extends StatelessWidget {
   final Color color;
   final IconData icon;
-  final Color iconColor;
   final String title;
   const LanguageChanger({
     Key? key,
     required this.color,
     required this.icon,
     required this.title,
-    required this.iconColor,
   }) : super(key: key);
 
 
@@ -34,7 +32,6 @@ class LanguageChanger extends StatelessWidget {
           ),
           child: Icon(
             icon,
-            color: iconColor,
           ),
         ),
         const SizedBox(width: 10,),
