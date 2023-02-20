@@ -25,9 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
         .get()
         .then((snapshot) async {
           setState(() {
-            email = snapshot.get('email');
-            firstName = snapshot.get('first name');
-            lastName = snapshot.get('last name');
+            final data = snapshot.data()!;
+            email = data['email'];
+            firstName = data['first name'];
+            lastName = data['last name'];
           });
     });
 
