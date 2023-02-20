@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/screens/change_password_screen.dart';
+import 'package:loginscreen/screens/edit_profile_screen.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
@@ -44,12 +46,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(200, 12, 167, 137),
                 icon: Ionicons.pencil,
                 title: AppLocalizations.of(context)!.editprofile,
+                page: MaterialPageRoute(builder: (context) => const EditProfile()),
               ),
               const SizedBox(height: 20,),
               SettingsTile(
                 color: const Color.fromARGB(200, 45, 155, 240),
                 icon: Ionicons.lock_closed,
                 title: AppLocalizations.of(context)!.changepassword,
+                page: MaterialPageRoute(builder: (context) => const ChangePassword()),
               ),
               const SizedBox(height: 25,),
               Text(AppLocalizations.of(context)!.notifications,
@@ -62,6 +66,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 color: const Color.fromARGB(200, 95, 99, 251),
                 icon: Ionicons.notifications,
                 title: AppLocalizations.of(context)!.notifications,
+                 page: MaterialPageRoute(builder: (context) => const SettingsScreen()),
               ),
               const SizedBox(height: 25,),
               Text(AppLocalizations.of(context)!.regional,
