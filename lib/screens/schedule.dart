@@ -58,9 +58,9 @@ class _ScheduleState extends State<Schedule> {
                 firstDay: DateTime(1990),
                 lastDay: DateTime(2050),
                 calendarFormat: format,
-                onFormatChanged: (CalendarFormat format) {
+                onFormatChanged: (CalendarFormat _format) {
                   setState(() {
-                    format = format;
+                    format = _format;
                   });
                 },
                 startingDayOfWeek: StartingDayOfWeek.sunday,
