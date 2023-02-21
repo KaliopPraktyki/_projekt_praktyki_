@@ -46,7 +46,7 @@ class SettingsTile extends StatelessWidget {
                 context,
                 page,
               ),
-            icon:Icon(Ionicons.chevron_forward_outline),
+            icon:const Icon(Ionicons.chevron_forward_outline),
 
           ),
         )
