@@ -74,11 +74,15 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 25),
                         ),
                        SizedBox(height: 20,),
-
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(
+                          style:
+                          ElevatedButton.styleFrom(
                             backgroundColor: Color(0xffbbcae5),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
                           ),
+
                           onPressed: () {
                             Navigator.push(
                               context,
