@@ -32,5 +32,6 @@
     "member": "Jesteś członkiem?",
     "loginnow": "Zaloguj się",
     "addtodo": "Dodaj ToDo",
-    "add": "Dodaj"
+    "add": "Dodaj",
+    "deleteacc": "Usuń Konto"
 }

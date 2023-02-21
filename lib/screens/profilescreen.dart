@@ -75,6 +75,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const Text(
                     "Name",
                     style: TextStyle(
+                      fontWeight: FontWeight.bold,
                       fontSize: 25,
                     ),
                   ),
@@ -122,7 +123,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
                             },
-                              child: Text(AppLocalizations.of(context)!.logout, style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 18,),),
+                              child: Text(AppLocalizations.of(context)!.logout, style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 20,),),
                             ),
                           ),
                         ),
