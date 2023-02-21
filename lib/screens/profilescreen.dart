@@ -46,26 +46,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    height: 120,
-                    width: 120,
-                    margin: const EdgeInsets.only(
-                      top: 30,
-                      bottom: 8,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black26,
-                          offset: Offset(2, 2),
-                          blurRadius: 10,
-                        ),
-                      ],
-                      image: const DecorationImage(
-                        image: AssetImage(
-                          "assets/images/prof.jpg",
+                  SingleChildScrollView(
+                    child: Container(
+                      height: 120,
+                      width: 120,
+                      margin: const EdgeInsets.only(
+                        top: 30,
+                        bottom: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: const [
+                          BoxShadow(
+                            color: Colors.black26,
+                            offset: Offset(2, 2),
+                            blurRadius: 10,
+                          ),
+                        ],
+                        image: const DecorationImage(
+                          image: AssetImage(
+                            "assets/images/prof.jpg",
+                          ),
                         ),
                       ),
                     ),
@@ -73,13 +75,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   const Text(
                     "Name",
                     style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 25,
                     ),
                   ),
                   const Text(
                     "Profession",
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 20,
                     ),
                   ),
                 ],
@@ -105,7 +107,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 26,),
                       listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name"),
                       listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress"),
-                      listProfile(Ionicons.male, AppLocalizations.of(context)!.gender, "Male/Female"),
 
                       SizedBox(width: 200,
                         child:
@@ -147,7 +148,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         children: [
           Icon(
             icon,
-            size: 20,
           ),
           const SizedBox(width: 24,),
           Column(
@@ -156,14 +156,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text(
                 text1,
                 style: const TextStyle(
-                  fontSize: 14,
+                  fontSize: 18,
                 ),
               ),
               Text(
                 text2,
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 20,
                 ),
               ),
             ],
