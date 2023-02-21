@@ -92,7 +92,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                            children: [
                              Padding(
                                padding: const EdgeInsets.only(left: 20,top: 10,bottom: 20),
-                               child:  TextFormField(
+                               child: TextFormField(
                                  decoration: InputDecoration(
                                    border: UnderlineInputBorder(),
                                    labelText: "New Password",
