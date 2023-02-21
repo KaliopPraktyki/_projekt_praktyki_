@@ -19,6 +19,12 @@ class _ChangePasswordState extends State<ChangePassword> {
 
   final currentUser = FirebaseAuth.instance.currentUser;
 
+  bool _passwordVisible = false;
+
+  void initState() {
+    _passwordVisible;
+  }
+
   @override
   void dispose(){
     newPasswordController.dispose();
@@ -66,7 +72,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                    width: 300,
                    child: Padding(
                      padding: EdgeInsets.only(left: 18,top: 10,),
-                     child: Text("Your new password must be different from previus used passwords.",
+                     child: Text("Your new password must be different from previous used passwords.",
                      style: TextStyle(
                        fontSize: 16
                      ),
@@ -87,22 +93,40 @@ class _ChangePasswordState extends State<ChangePassword> {
                              Padding(
                                padding: const EdgeInsets.only(left: 20,top: 10,bottom: 20),
                                child:  TextFormField(
-                                 decoration: const InputDecoration(
+                                 decoration: InputDecoration(
                                    border: UnderlineInputBorder(),
                                    labelText: "New Password",
                                    hintText: "Enter New Password",
+                                   suffixIcon: IconButton(
+                                     icon: Icon(
+                                       // Based on passwordVisible state choose the icon
+                                       _passwordVisible
+                                           ? Icons.visibility
+                                           : Icons.visibility_off,
+                                       color: Theme.of(context).primaryColorDark,
+                                     ),
+                                     onPressed: () {
+                                       // Update the state i.e. toogle the state of passwordVisible variable
+                                       setState(() {
+                                         _passwordVisible = !_passwordVisible;
+                                       });
+                                     },
+                                   ),
                                  ),
                                  onChanged: (value){
                                    newPassword;
                                  },
-                                 obscureText: true,
+                                 obscureText: !_passwordVisible,
                                  controller: newPasswordController,
                                  validator: (value){
                                    if(value == null || value.isEmpty){
                                      return "Please enter Password";
+                                   }else if(newPassword.length <6){
+                                     return "Min. length password is 6";
                                    }
                                    return null;
                                  },
+
                                ),
                              ),
                              Padding(
