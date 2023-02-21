@@ -106,9 +106,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 26,),
-                      listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name"),
-                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress"),
+                      const SizedBox(height: 25,),
+
+                      listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name", Colors.greenAccent),
+                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress", Colors.lime),
 
                       SizedBox(width: 200,
                         child:
@@ -129,7 +130,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                       )
-
                     ],
                   ),
                 ),
@@ -141,16 +141,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget listProfile(IconData icon, String text1, String text2) {
+  Widget listProfile(IconData icon, String text1, String text2, Color iconColor) {
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(top: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Icon(
-            icon,
+          Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: iconColor,
+                  ),
+            child:Icon(
+              icon,
+            ),
           ),
+
           const SizedBox(width: 24,),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
