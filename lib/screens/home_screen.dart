@@ -74,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 25),
                         ),
                        SizedBox(height: 20,),
+
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xffbbcae5),
