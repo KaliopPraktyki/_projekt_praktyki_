@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             SizedBox(
-              height: 550,
+              height: 530,
               child: FutureBuilder(
                 future: getDocId(),
                 builder: (context, snapshot){
@@ -106,6 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+
           ],
         ),
       )
