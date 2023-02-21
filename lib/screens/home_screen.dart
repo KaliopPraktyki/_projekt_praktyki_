@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: getDocId(),
                 builder: (context, snapshot){
                   return Card(
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     child: ListView.builder(
                       itemCount: docIds.length,
                       itemBuilder: (context, index) {
