@@ -98,7 +98,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         child: TextButton(onPressed: (){
                           //code
                         },
-                          child: Text(AppLocalizations.of(context)!.deleteacc, style: TextStyle(color: Theme.of(context).errorColor, fontSize: 20,),),
+                          child: Text("delete acc", style: TextStyle(color: Theme.of(context).errorColor, fontSize: 20,),),
                         ),
                       ),
                     ),
