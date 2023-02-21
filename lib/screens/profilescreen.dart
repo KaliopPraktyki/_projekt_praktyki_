@@ -88,6 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
             ),
+
             Expanded(
               flex: 6,
               child: Container(
