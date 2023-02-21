@@ -161,25 +161,28 @@ class _ScheduleState extends State<Schedule> {
           TextButton(
             child: const Text("Add"),
             onPressed: () {
-              if (_titleController.text.isEmpty &&
+              if (_titleController.text.isEmpty) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Title is required'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+              } else if (_titleController.text.isEmpty &&
                   _descrController.text.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('Required title and description'),
+                    content: Text('Title and description are required'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 //Navigator.pop(context);
-                return;
-              } else {
-
+                return;}
+              else {
                 print(_titleController.text);
                 print(_descrController.text);
-
                 setState(() {
-                  if (selectedEvents[
-                  DateFormat('yyyy-MM-dd').format(_selectedDate!)] !=
-                      null) {
+                  if (selectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDate!)] != null) {
                     selectedEvents[
                     DateFormat('yyyy-MM-dd').format(_selectedDate!)]
                         ?.add({
@@ -201,6 +204,7 @@ class _ScheduleState extends State<Schedule> {
                 return;
               }
             }
+
           ),
         ],
       ),
