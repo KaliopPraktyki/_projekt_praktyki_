@@ -109,7 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 25,),
 
                       listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name", Colors.greenAccent),
-                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress", Colors.lime),
+                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress", Colors.amberAccent),
 
                       SizedBox(width: 200,
                         child:
