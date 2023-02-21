@@ -1,8 +1,7 @@
 import 'dart:async';
-
+import 'package:ionicons/ionicons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:loginscreen/screens/home_page.dart';
 
 
@@ -75,6 +74,19 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              height:75,
+              width: 75,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Transform.scale(
+                scale:2,
+                child: Icon(Ionicons.mail_unread,color: Colors.white,),
+              ),
+            ),
+            Padding(padding: EdgeInsets.only(bottom: 15)),
             Text('A verification email has been sent to your email',
             style: TextStyle(
               fontSize: 20,
