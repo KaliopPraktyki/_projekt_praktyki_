@@ -6,11 +6,13 @@ class SettingsTile extends StatelessWidget {
   final Color color;
   final IconData icon;
   final String title;
+  final MaterialPageRoute page;
   const SettingsTile({
     Key? key,
     required this.color,
     required this.icon,
     required this.title,
+    required this.page,
   }) : super(key: key);
 
   @override
@@ -36,10 +38,17 @@ class SettingsTile extends StatelessWidget {
         ),
         const SizedBox(width: 10),
         const Spacer(),
-        const SizedBox(
+        SizedBox(
           width: 50,
           height: 50,
-          child: Icon(Ionicons.chevron_forward_outline),
+          child:IconButton(
+              onPressed:() => Navigator.push(
+                context,
+                page,
+              ),
+            icon:Icon(Ionicons.chevron_forward_outline),
+
+          ),
         )
       ],
     );
