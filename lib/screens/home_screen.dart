@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 20 ),),
+                          padding: EdgeInsets.only(top: 40 ),),
                         Text(
                           AppLocalizations.of(context)!.welcome,
                           style: const TextStyle(
@@ -73,10 +73,29 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.bold,
                               fontSize: 25),
                         ),
+                       SizedBox(height: 20,),
+
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xffbbcae5),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const addAnnouncement()),
+                            );
+                          },
+                          child:
+                          const Text(
+                            'Add Announcement',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ),
                       ],
 
                     ),
                   ),
+
                 ],
               ),
               const Padding(
