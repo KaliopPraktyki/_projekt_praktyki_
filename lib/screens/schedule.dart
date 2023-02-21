@@ -168,14 +168,6 @@ class _ScheduleState extends State<Schedule> {
                     duration: Duration(seconds: 2),
                   ),
                 );
-              } else if (_titleController.text.isEmpty &&
-                  _descrController.text.isEmpty) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Title and description are required'),
-                    duration: Duration(seconds: 2),
-                  ),
-                );
                 //Navigator.pop(context);
                 return;}
               else {
