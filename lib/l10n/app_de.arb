@@ -32,5 +32,6 @@
     "member": "Sind Sie bereits Mitglied?",
     "loginnow": "Jetzt anmelden",
     "add": "hinzufügen",
-    "addtodo": "ToDo hinzufügen"
+    "addtodo": "ToDo hinzufügen",
+    "deleteacc": "Konto Löschen"
 }

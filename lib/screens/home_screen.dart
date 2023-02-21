@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:loginscreen/screens/add_announcement_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen ({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 20 ),),
+                          padding: EdgeInsets.only(top: 40 ),),
                         Text(
                           AppLocalizations.of(context)!.welcome,
                           style: const TextStyle(
@@ -72,10 +73,33 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontWeight: FontWeight.bold,
                               fontSize: 25),
                         ),
+                       SizedBox(height: 20,),
+                        ElevatedButton(
+                          style:
+                          ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xffbbcae5),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const addAnnouncement()),
+                            );
+                          },
+                          child:
+                          const Text(
+                            'Add Announcement',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ),
                       ],
 
                     ),
                   ),
+
                 ],
               ),
               const Padding(
@@ -254,7 +278,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-
             ],
           ),
 

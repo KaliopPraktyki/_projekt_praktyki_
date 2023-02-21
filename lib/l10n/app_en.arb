@@ -32,6 +32,6 @@
     "member": "Are you already a member?",
     "loginnow": "Login now",
     "add": "Add",
-    "addtodo": "Add Todo"
-
+    "addtodo": "Add Todo",
+    "deleteacc": "Delete Account"
 }

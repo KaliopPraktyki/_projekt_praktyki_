@@ -81,6 +81,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 icon: Ionicons.language,
                 title: AppLocalizations.of(context)!.languageregion,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: 200,
+                    child:
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 90,
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: Theme.of(context).errorColor,),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: TextButton(onPressed: (){
+                          //code
+                        },
+                          child: Text(AppLocalizations.of(context)!.deleteacc, style: TextStyle(color: Theme.of(context).errorColor, fontSize: 20,),),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
 
             ],
           ),
