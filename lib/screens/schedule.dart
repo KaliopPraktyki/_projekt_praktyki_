@@ -58,9 +58,9 @@ class _ScheduleState extends State<Schedule> {
                 firstDay: DateTime(1990),
                 lastDay: DateTime(2050),
                 calendarFormat: format,
-                onFormatChanged: (CalendarFormat format) {
+                onFormatChanged: (CalendarFormat _format) {
                   setState(() {
-                    format = format;
+                    format = _format;
                   });
                 },
                 startingDayOfWeek: StartingDayOfWeek.sunday,
@@ -161,25 +161,20 @@ class _ScheduleState extends State<Schedule> {
           TextButton(
             child: const Text("Add"),
             onPressed: () {
-              if (_titleController.text.isEmpty &&
-                  _descrController.text.isEmpty) {
+              if (_titleController.text.isEmpty) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('Required title and description'),
+                    content: Text('Title is required'),
                     duration: Duration(seconds: 2),
                   ),
                 );
                 //Navigator.pop(context);
-                return;
-              } else {
-
+                return;}
+              else {
                 print(_titleController.text);
                 print(_descrController.text);
-
                 setState(() {
-                  if (selectedEvents[
-                  DateFormat('yyyy-MM-dd').format(_selectedDate!)] !=
-                      null) {
+                  if (selectedEvents[DateFormat('yyyy-MM-dd').format(_selectedDate!)] != null) {
                     selectedEvents[
                     DateFormat('yyyy-MM-dd').format(_selectedDate!)]
                         ?.add({
@@ -201,6 +196,7 @@ class _ScheduleState extends State<Schedule> {
                 return;
               }
             }
+
           ),
         ],
       ),
