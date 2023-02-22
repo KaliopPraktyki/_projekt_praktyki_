@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/change_password_screen.dart';
 import 'package:loginscreen/screens/edit_profile_screen.dart';
+import 'package:loginscreen/screens/home_page.dart';
+import 'package:loginscreen/screens/home_screen.dart';
 import 'package:loginscreen/screens/profilescreen.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
@@ -26,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         leading: GestureDetector(
           onTap: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
           },
           child: Icon(Ionicons.arrow_back),
         ),
@@ -113,7 +115,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   )
                 ],
               )
-
             ],
           ),
         ),
