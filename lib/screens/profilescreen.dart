@@ -38,9 +38,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         iconSize: 25,
                         icon: const Icon(Ionicons.settings),
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
-                            MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                            MaterialPageRoute(builder: (context) => SettingsScreen()),
                           );
                         },
                       ),
