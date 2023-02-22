@@ -1,8 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/screens/login_screen.dart';
+import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/screens/settings_screen.dart';
+
+import '../auth/auth_page.dart';
 
 
 class ChangePassword extends StatefulWidget {
@@ -37,7 +39,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     try{
       await currentUser!.updatePassword(newPassword);
       FirebaseAuth.instance.signOut();
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => loginscreen(showRegisterPage: () {},)));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  MainPage()));
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
         content: Text("Your password has been Changed.. Login again"),
 
