@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/auth/auth_page.dart';
+import 'package:loginscreen/auth/main_screen.dart';
+import 'login_screen.dart';
 import 'settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -127,6 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
                             },
                               child: Text(AppLocalizations.of(context)!.logout, style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 20,),),
                             ),
