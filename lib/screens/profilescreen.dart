@@ -30,19 +30,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 330,
+                      left: 325,
                       top: 40
                     ),
-                    child: SizedBox(width: 200,
-                      child: IconButton(
-                        iconSize: 25,
-                        icon: const Icon(Ionicons.settings),
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => SettingsScreen()),
-                          );
-                        },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10,),
+                      child: SizedBox(width: 200,
+                        child: IconButton(
+                          iconSize: 25,
+                          icon: const Icon(Ionicons.settings),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => SettingsScreen()),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -51,7 +54,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       height: 120,
                       width: 120,
                       margin: const EdgeInsets.only(
-                        top: 30,
+                        top: 20,
                         bottom: 8,
                       ),
                       decoration: BoxDecoration(
