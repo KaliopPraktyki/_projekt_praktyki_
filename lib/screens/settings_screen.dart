@@ -1,14 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/screens/change_password_screen.dart';
 import 'package:loginscreen/screens/edit_profile_screen.dart';
 import 'package:loginscreen/screens/home_page.dart';
-import 'package:loginscreen/screens/home_screen.dart';
-import 'package:loginscreen/screens/profilescreen.dart';
+import '../auth/auth_page.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'login_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -17,6 +20,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  final user = FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +110,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: TextButton(onPressed: (){
-                          //code
+                          user.delete();
+                          FirebaseAuth.instance.signOut();
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  MainPage()));
                         },
                           child: Text("delete acc", style: TextStyle(color: Theme.of(context).errorColor, fontSize: 20,),),
                         ),

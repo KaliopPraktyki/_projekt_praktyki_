@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:loginscreen/auth/auth_page.dart';
+import 'package:loginscreen/auth/main_screen.dart';
+import 'login_screen.dart';
 import 'settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -30,19 +33,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      left: 330,
+                      left: 325,
                       top: 40
                     ),
-                    child: SizedBox(width: 200,
-                      child: IconButton(
-                        iconSize: 25,
-                        icon: const Icon(Ionicons.settings),
-                        onPressed: () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => SettingsScreen()),
-                          );
-                        },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 10,),
+                      child: SizedBox(width: 200,
+                        child: IconButton(
+                          iconSize: 25,
+                          icon: const Icon(Ionicons.settings),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => SettingsScreen()),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
@@ -51,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       height: 120,
                       width: 120,
                       margin: const EdgeInsets.only(
-                        top: 30,
+                        top: 20,
                         bottom: 8,
                       ),
                       decoration: BoxDecoration(
@@ -124,6 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                             child: TextButton(onPressed: (){
                               FirebaseAuth.instance.signOut();
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
                             },
                               child: Text(AppLocalizations.of(context)!.logout, style: TextStyle(color: Theme.of(context).secondaryHeaderColor, fontSize: 20,),),
                             ),
