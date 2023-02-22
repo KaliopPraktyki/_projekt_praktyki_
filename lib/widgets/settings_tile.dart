@@ -42,10 +42,12 @@ class SettingsTile extends StatelessWidget {
           width: 50,
           height: 50,
           child:IconButton(
-              onPressed:() => Navigator.push(
-                context,
-                page,
-              ),
+              onPressed:() {
+                Navigator.pushReplacement(
+                  context,
+                  page,
+                );
+              },
             icon:const Icon(Ionicons.chevron_forward_outline),
 
           ),

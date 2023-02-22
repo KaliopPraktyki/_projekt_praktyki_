@@ -39,6 +39,11 @@ class _addAnnouncementState extends State<addAnnouncement> {
     });
   }
 
+  final _formKey = GlobalKey<FormState>();
+  String _title = '';
+  String _content = '';
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -56,44 +61,79 @@ class _addAnnouncementState extends State<addAnnouncement> {
             Container(
               height: 340,
               width: 300,
-              child: Column(
-                children: [
-                  TextField(
-                    controller: _titleController,
-                    decoration: InputDecoration(
-                      labelText: 'Enter title',
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      onChanged: (value){
+                        _title = value;
+                      },
+                      validator: (value) {
+                        if (value != null && value.isEmpty) {
+                          return 'Title is required please enter';
+                        }else if(_title.length < 3){
+                          return 'Min. lenght title is 3';
+                        }
+                        else {
+                          return null;
+                        }
+                      },
+                      controller: _titleController,
+                      decoration: InputDecoration(
+                        labelText: 'Enter title',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(labelText: 'Enter content'),
-                      keyboardType: TextInputType.multiline,
-                      maxLines: null,
-                      expands: true,
-                      controller: _contentController,
+                    SizedBox(
+                      height: 10,
                     ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      getNewAnnouncement();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const HomePage()),
-                      );
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.add,
-                      style: TextStyle(fontSize: 24),
+                    Expanded(
+                      child: TextFormField(
+                        onChanged: (value){
+                          _content = value;
+                        },
+                        validator: (value) {
+                          if (value != null && value.isEmpty) {
+                            return 'Content is required please enter';
+                          }else if(_content.length < 10){
+                            return 'Min. lenght content is 10';
+                          }
+                          else {
+                            return null;
+                          }
+                        },
+                        decoration: InputDecoration(labelText: 'Enter content'),
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        expands: true,
+                        controller: _contentController,
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        getNewAnnouncement();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomePage()),
+                        );
+                      }else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text("Something is wrong"),)
+                        );
+                      }
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.add,
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ),
 
-                ],
+                  ],
+                ),
               ),
             )
           ],
