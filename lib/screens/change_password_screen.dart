@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/login_screen.dart';
+import 'package:loginscreen/screens/settings_screen.dart';
 
 
 class ChangePassword extends StatefulWidget {
@@ -46,7 +48,15 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Change Password'),
+      appBar:
+      AppBar(
+        title: const Text('Change Password'),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SettingsScreen() ));
+          },
+          child: Icon(Ionicons.arrow_back),
+        ),
       ),
       body: SafeArea(
           child: Column(

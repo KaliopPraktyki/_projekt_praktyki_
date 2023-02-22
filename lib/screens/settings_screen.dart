@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/change_password_screen.dart';
 import 'package:loginscreen/screens/edit_profile_screen.dart';
+import 'package:loginscreen/screens/profilescreen.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
@@ -21,7 +22,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
       appBar: AppBar(
         title: Text(
         AppLocalizations.of(context)!.settings,
-        style: const TextStyle(fontSize: 25),),
+        style: const TextStyle(fontSize: 25),
+        ),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ProfileScreen()));
+          },
+          child: Icon(Ionicons.arrow_back),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -63,9 +71,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),),
               const SizedBox(height: 25,),
                SettingsTile(
-                color: const Color.fromARGB(200, 95, 99, 251),
-                icon: Ionicons.notifications,
-                title: AppLocalizations.of(context)!.notifications,
+                 color: const Color.fromARGB(200, 95, 99, 251),
+                 icon: Ionicons.notifications,
+                 title: AppLocalizations.of(context)!.notifications,
                  page: MaterialPageRoute(builder: (context) => const SettingsScreen()),
               ),
               const SizedBox(height: 25,),
