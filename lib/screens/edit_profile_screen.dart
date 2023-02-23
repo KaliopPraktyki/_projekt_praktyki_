@@ -39,6 +39,7 @@ class _EditProfileState extends State<EditProfile> {
     }else{
       dateInput.text = _birthday!;
     }
+    _firstName = widget.user.firstName;
     super.initState();
   }
 
@@ -133,7 +134,7 @@ class _EditProfileState extends State<EditProfile> {
                         initialValue: _lastName,
                         decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
-                          labelText: "Last name",
+                          labelText: "Last  name",
                         ),
                         validator: (input){
                          if(input == null){
