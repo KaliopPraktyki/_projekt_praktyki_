@@ -10,8 +10,9 @@ import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:loginscreen/screens/notificationview.dart';
 
-import 'login_screen.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -80,7 +81,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                  color: const Color.fromARGB(200, 95, 99, 251),
                  icon: Ionicons.notifications,
                  title: AppLocalizations.of(context)!.notifications,
-                 page: MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                 page: MaterialPageRoute(builder: (context) => const NotificationView()),
               ),
               const SizedBox(height: 25,),
               Text(AppLocalizations.of(context)!.regional,
