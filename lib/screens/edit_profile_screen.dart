@@ -16,35 +16,7 @@ class EditProfile extends StatefulWidget {
 
 class _EditProfileState extends State<EditProfile> {
 
-  String? _firstName;
-  String? _lastName;
-  String? _birthday;
-  File? _profileImage;
-  TextEditingController dateInput = TextEditingController();
-  displayProfileImage(){
-    if(_profileImage == null){
-      return const AssetImage('assets/images/prof.jpg');
-    }else{
-      return FileImage(_profileImage!);
-    }
-  }
-  saveProfile(){
-
-  }
-  void initState() {
-     //set the initial value of text field
-    if(_birthday == null){
-      dateInput.text = "";
-
-    }else{
-      dateInput.text = _birthday!;
-    }
-    _firstName = widget.user.firstName;
-    super.initState();
-  }
-
   final  _formKey = GlobalKey<FormState>();
-  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +42,6 @@ class _EditProfileState extends State<EditProfile> {
                 children: [
                   CircleAvatar(
                     radius: 60,
-                    backgroundImage: displayProfileImage(),
                   ),
                   CircleAvatar(
                     radius: 60,
@@ -110,7 +81,6 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10,),
                       child: TextFormField(
-                        initialValue: _firstName,
                         decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: "First name",
@@ -123,7 +93,6 @@ class _EditProfileState extends State<EditProfile> {
                           }
                         },
                         onSaved: (value){
-                          _firstName = value;
                         },
                         onChanged: (value){},
                       ),
@@ -131,7 +100,6 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10,bottom: 10,),
                       child: TextFormField(
-                        initialValue: _lastName,
                         decoration: const InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: "Last  name",
@@ -144,7 +112,6 @@ class _EditProfileState extends State<EditProfile> {
                          }
                         },
                         onSaved: (value){
-                          _lastName = value;
                         },
                         onChanged: (value){},
                       ),
@@ -152,7 +119,6 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                         padding: EdgeInsets.only(top: 10,bottom: 10),
                       child: TextField(
-                        controller: dateInput,
                         decoration: InputDecoration(
                           icon: Icon(Ionicons.calendar),
                           labelText: "Birth Date",
@@ -175,17 +141,12 @@ class _EditProfileState extends State<EditProfile> {
                               print(formattedDate);
                             }
                             setState(() {
-                              dateInput.text = formattedDate;
                             });
                           }else{}
                         },
                       ),
                     ),
-                    _isLoading?
-                        CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation(Theme.of(context).cardColor),
-                        )
-                        :SizedBox.shrink()
+
                   ],
                 ),
               ),
@@ -214,7 +175,6 @@ class _EditProfileState extends State<EditProfile> {
                     width: 150,
                     height: 40,
                     child: GestureDetector(
-                      onTap: saveProfile(),
                       child: ElevatedButton(
                         onPressed: (){},
                         child: Text("Save"),
