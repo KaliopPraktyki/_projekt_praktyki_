@@ -62,21 +62,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    AppLocalizations.of(context)!.welcome,
-                    style: const TextStyle(
-                        fontSize: 25),
-                  ),
-                  FutureBuilder(
-                    future: getUserName(),
-                    builder: (_ , AsyncSnapshot snapshot){
-                      if(snapshot.connectionState == ConnectionState.waiting){
-                        return Center( child: CircularProgressIndicator());
-                      }
-                      return Text(firstName!,style:
-                        TextStyle(fontWeight: FontWeight.bold,
-                            fontSize: 25),);
-                    },
+                  Row(
+                    children: [
+                      Text(
+                          AppLocalizations.of(context)!.welcome+" ",
+                        style: TextStyle(
+                            fontSize: 25
+                        ),
+                      ),
+                      FutureBuilder(
+                        future: getUserName(),
+                        builder: (_ , AsyncSnapshot snapshot){
+                          if(snapshot.connectionState == ConnectionState.waiting){
+                            return Center( child: CircularProgressIndicator());
+                          }
+                          return Text(firstName!,style:
+                          TextStyle(fontWeight: FontWeight.bold,
+                              fontSize: 25),);
+                        },
+                      ),
+                    ],
                   ),
                  SizedBox(height: 20,),
                   ElevatedButton(
