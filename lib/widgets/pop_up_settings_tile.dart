@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loginscreen/l10n/l10n.dart';
-import 'package:loginscreen/provider/language_provider.dart';
+import 'package:ProjektPraktyki/l10n/l10n.dart';
+import 'package:ProjektPraktyki/provider/language_provider.dart';
 import 'package:provider/provider.dart';
 
 class LanguageChanger extends StatelessWidget {

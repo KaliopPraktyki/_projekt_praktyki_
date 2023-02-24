@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:loginscreen/provider/theme_provider.dart';
+import 'package:ProjektPraktyki/provider/theme_provider.dart';
 
 class ThemeChanger extends StatelessWidget {
   final Color color;

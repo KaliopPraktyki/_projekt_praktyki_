@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:loginscreen/auth/main_screen.dart';
-import 'package:loginscreen/provider/theme_provider.dart';
+import 'package:ProjektPraktyki/auth/main_screen.dart';
+import 'package:ProjektPraktyki/provider/theme_provider.dart';
 import 'l10n/l10n.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:loginscreen/provider/language_provider.dart';
+import 'package:ProjektPraktyki/provider/language_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

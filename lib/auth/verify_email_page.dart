@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:ionicons/ionicons.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:loginscreen/screens/home_page.dart';
+import 'package:ProjektPraktyki/screens/home_page.dart';
 
 
 class VerifyEmailPage extends StatefulWidget {

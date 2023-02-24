@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:loginscreen/screens/home_page.dart';
+import 'package:ProjektPraktyki/screens/home_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class addAnnouncement extends StatefulWidget {
   const addAnnouncement ({Key? key,}) : super(key: key);
