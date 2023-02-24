@@ -53,8 +53,8 @@ class _RegisterPageState extends State<RegisterPage> {
         'firstName': firstName,
         'lastName': lastName,
         'email': email,
-        'profilePicture': null,
-        'birthday': null,
+        'profilePicture': "",
+        'birthday': "",
         'userId': userId,
       });
     }
