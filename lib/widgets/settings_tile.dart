@@ -42,8 +42,8 @@ class SettingsTile extends StatelessWidget {
           width: 50,
           height: 50,
           child:IconButton(
-              onPressed:() {
-                Navigator.pushReplacement(
+              onPressed:() async {
+                await Navigator.pushReplacement(
                   context,
                   page,
                 );
