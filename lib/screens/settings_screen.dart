@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -22,6 +23,12 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
+  Future deleteUser() async {
+    final userId = FirebaseAuth.instance.currentUser!.uid;
+    await FirebaseFirestore.instance.collection('users').doc(userId).delete();
+    await FirebaseAuth.instance.currentUser!.delete();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,9 +118,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: TextButton(onPressed: (){
+                          deleteUser();
                           user.delete();
                           FirebaseAuth.instance.signOut();
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  MainPage()));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text("Account deleted"),)
+                          );
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
                         },
                           child: Text(AppLocalizations.of(context)!.deleteacc, style: TextStyle(color: Theme.of(context).errorColor, fontSize: 20,),),
                         ),
