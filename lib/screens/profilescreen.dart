@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -17,6 +18,30 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final user = FirebaseAuth.instance.currentUser!;
+
+  String? firstName = '';
+  String? lastName = '';
+  String? email = '';
+
+  Future _getDataFromDatabase() async {
+    await FirebaseFirestore.instance.collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid).get()
+        .then((snapshot) async {
+          if(snapshot.exists){
+            setState(() {
+              firstName = snapshot.data()!['firstName'];
+              lastName = snapshot.data()!['lastName'];
+              email = snapshot.data()!['email'];
+            });
+          }
+    });
+  }
+
+@override
+  void initState() {
+    _getDataFromDatabase();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,8 +103,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
-                  const Text(
-                    "Name",
+                   Text(
+                    firstName!,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
@@ -114,8 +139,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     children: [
                       const SizedBox(height: 25,),
 
-                      listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "Your Name", Colors.greenAccent),
-                      listProfile(Ionicons.locate, AppLocalizations.of(context)!.location, "Adress", Colors.amberAccent),
+                      listProfile(Ionicons.person, AppLocalizations.of(context)!.fullname, "${firstName} ${lastName}", Colors.greenAccent),
+                      listProfile(Ionicons.mail, "Email", "${email}", Colors.amberAccent),
 
                       SizedBox(width: 200,
                         child:
