@@ -33,6 +33,12 @@
     "loginnow": "Zaloguj się",
     "addtodo": "Dodaj ToDo",
     "add": "Dodaj",
-    "deleteacc": "Usuń Konto"
-
+    "deleteacc": "Usuń Konto",
+    "birthdate": "Data urodzin",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "create": "Stwórz nowe hasło",
+    "yournewpassword": "Twoje nowe hasło musi być inne niż poprzednio używane.",
+    "newpassword": "Nowe hasło",
+    "changeproflephoto": "Zmień zdjęcie profilowe"
 }
