@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/auth/main_screen.dart';
 import 'package:loginscreen/screens/settings_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../auth/auth_page.dart';
 
 
@@ -52,7 +52,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     return Scaffold(
       appBar:
       AppBar(
-        title: const Text('Change Password'),
+        title: Text(AppLocalizations.of(context)!.changepassword),
         leading: GestureDetector(
           onTap: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SettingsScreen() ));
@@ -65,10 +65,10 @@ class _ChangePasswordState extends State<ChangePassword> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
+                children: [
                   Padding(
                     padding: EdgeInsets.only(left: 15,top:20),
-                    child: Text("Create new password",
+                    child: Text(AppLocalizations.of(context)!.create,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40
@@ -79,12 +79,12 @@ class _ChangePasswordState extends State<ChangePassword> {
               ),
              Row(
                mainAxisAlignment: MainAxisAlignment.start,
-               children: const [
+               children: [
                  SizedBox(
                    width: 300,
                    child: Padding(
                      padding: EdgeInsets.only(left: 18,top: 10,),
-                     child: Text("Your new password must be different from previous used passwords.",
+                     child: Text(AppLocalizations.of(context)!.yournewpassword,
                      style: TextStyle(
                        fontSize: 16
                      ),
@@ -107,7 +107,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                                child: TextFormField(
                                  decoration: InputDecoration(
                                    border: UnderlineInputBorder(),
-                                   labelText: "New Password",
+                                   labelText: AppLocalizations.of(context)!.newpassword,
                                    hintText: "Enter New Password",
                                    suffixIcon: IconButton(
                                      icon: Icon(
@@ -156,7 +156,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                                      changePassword();
                                    }
                                  },
-                                   child: const Text("Change Password",
+                                   child: Text(AppLocalizations.of(context)!.changepassword,
                                      style: TextStyle(
                                        fontSize: 25,
                                      ),

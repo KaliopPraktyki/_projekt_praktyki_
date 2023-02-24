@@ -93,7 +93,7 @@ class _EditProfileState extends State<EditProfile> {
                           size: 45,
                         ),
                         Text(
-                            "Change Profile Photo",
+                          AppLocalizations.of(context)!.changeproflephoto,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 13,
@@ -162,7 +162,7 @@ class _EditProfileState extends State<EditProfile> {
                         controller: dateInput,
                         decoration: InputDecoration(
                           icon: Icon(Ionicons.calendar),
-                          labelText: "Birth Date",
+                          labelText: AppLocalizations.of(context)!.birthdate,
                         ),
                         readOnly: true,
                         onTap: () async{
@@ -208,7 +208,7 @@ class _EditProfileState extends State<EditProfile> {
                         onPressed: (){
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  const EditProfile()));
                         },
-                        child: Text("Cancel"),
+                        child: Text(AppLocalizations.of(context)!.cancel),
                       ),
                     ),
                   ),
@@ -236,7 +236,7 @@ class _EditProfileState extends State<EditProfile> {
 
                           ));
                         },
-                        child: Text("Save"),
+                        child: Text(AppLocalizations.of(context)!.save),
                       ),
                     ),
                   ),
