@@ -30,6 +30,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  String? firstName = "";
+  String? lastName = "";
+  final uid = FirebaseAuth.instance.currentUser!.uid;
+  Future <void> getUserName() async {
+    await FirebaseFirestore.instance.collection('users').where('userId', isEqualTo: uid).get().then((user) async {
+      user.docs.forEach((result) {
+        firstName = result.data()['firstName'];
+        lastName = result.data()['lastName'];
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    getUserName();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,11 +67,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: const TextStyle(
                         fontSize: 25),
                   ),
-                  Text(
-                    user.email!,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25),
+                  FutureBuilder(
+                    future: getUserName(),
+                    builder: (_ , AsyncSnapshot snapshot){
+                      if(snapshot.connectionState == ConnectionState.waiting){
+                        return Center( child: CircularProgressIndicator());
+                      }
+                      return Text(firstName!,style:
+                        TextStyle(fontWeight: FontWeight.bold,
+                            fontSize: 25),);
+                    },
                   ),
                  SizedBox(height: 20,),
                   ElevatedButton(
@@ -64,7 +87,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-
                     onPressed: () {
                       Navigator.push(
                         context,
