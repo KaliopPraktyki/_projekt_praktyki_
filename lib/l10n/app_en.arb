@@ -33,5 +33,12 @@
     "loginnow": "Login now",
     "add": "Add",
     "addtodo": "Add Todo",
-    "deleteacc": "Delete Account"
+    "deleteacc": "Delete Account",
+    "birthdate": "Birth Date",
+    "cancel": "Cancel",
+    "save": "Save",
+    "create": "Create new password",
+    "yournewpassword": "Your new password must be different from previous used password.",
+    "newpassword": "New Password",
+    "changeproflephoto": "Change Profile Photo"
 }

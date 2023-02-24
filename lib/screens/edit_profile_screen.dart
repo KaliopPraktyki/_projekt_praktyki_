@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/settings_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'dart:io';
 
 class EditProfile extends StatefulWidget {
@@ -23,7 +24,7 @@ class _EditProfileState extends State<EditProfile> {
     return Scaffold(
       appBar:
       AppBar(
-        title: const Text('Edit Profile'),
+        title: Text(AppLocalizations.of(context)!.editprofile),
         leading: GestureDetector(
           onTap: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SettingsScreen() ));
@@ -81,9 +82,9 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 10,),
                       child: TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: UnderlineInputBorder(),
-                          labelText: "First name",
+                          labelText: AppLocalizations.of(context)!.firstname,
                         ),
                         validator: (input){
                           if(input == null){
@@ -100,9 +101,9 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10,bottom: 10,),
                       child: TextFormField(
-                        decoration: const InputDecoration(
+                        decoration: InputDecoration(
                           border: UnderlineInputBorder(),
-                          labelText: "Last  name",
+                          labelText: AppLocalizations.of(context)!.lastname,
                         ),
                         validator: (input){
                          if(input == null){
