@@ -33,7 +33,7 @@ class NotificationView extends StatelessWidget {
   },
     separatorBuilder: (contex, index){
     return Divider(height: 0);
-  }, itemCount: 15);
+  }, itemCount: 10);
   }
 
   Widget listViewItem(int index){
@@ -66,9 +66,9 @@ class NotificationView extends StatelessWidget {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: Colors.grey.shade300,
+        color: Color.fromARGB(200, 95, 99, 251),
       ),
-      child: Icon(Ionicons.notifications, size: 25, color: Colors.grey.shade700,),
+      child: Icon(Ionicons.notifications, size: 25,),
     );
   }
 
