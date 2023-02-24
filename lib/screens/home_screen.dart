@@ -70,7 +70,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   FutureBuilder(
                     future: getUserName(),
                     builder: (_ , AsyncSnapshot snapshot){
-
                       if(snapshot.connectionState == ConnectionState.waiting){
                         return Center( child: CircularProgressIndicator());
                       }
