@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/screens/home_screen.dart';
-import 'package:loginscreen/screens/profilescreen.dart';
-import 'package:loginscreen/screens/schedule.dart';
-import 'package:loginscreen/screens/todo_page.dart';
+import 'package:ProjektPraktyki/screens/home_screen.dart';
+import 'package:ProjektPraktyki/screens/profilescreen.dart';
+import 'package:ProjektPraktyki/screens/schedule.dart';
+import 'package:ProjektPraktyki/screens/todo_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

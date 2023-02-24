@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginscreen/l10n/l10n.dart';
+import 'package:ProjektPraktyki/l10n/l10n.dart';
 
 class LocaleProvider extends ChangeNotifier {
 

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/auth/main_screen.dart';
-import 'package:loginscreen/screens/settings_screen.dart';
+import 'package:ProjektPraktyki/auth/main_screen.dart';
+import 'package:ProjektPraktyki/screens/settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../auth/auth_page.dart';
 

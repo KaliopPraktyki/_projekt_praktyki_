@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
-import 'package:loginscreen/read%20data/get_announcement.dart';
-import 'package:loginscreen/screens/add_announcement_screen.dart';
+import 'package:ProjektPraktyki/read%20data/get_announcement.dart';
+import 'package:ProjektPraktyki/screens/add_announcement_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen ({Key? key}) : super(key: key);

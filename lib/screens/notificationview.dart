@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/screens/home_page.dart';
-import 'package:loginscreen/screens/settings_screen.dart';
+import 'package:ProjektPraktyki/screens/home_page.dart';
+import 'package:ProjektPraktyki/screens/settings_screen.dart';
 
 
 class NotificationView extends StatelessWidget {

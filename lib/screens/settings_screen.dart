@@ -2,16 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:loginscreen/auth/main_screen.dart';
-import 'package:loginscreen/screens/change_password_screen.dart';
-import 'package:loginscreen/screens/edit_profile_screen.dart';
-import 'package:loginscreen/screens/home_page.dart';
+import 'package:ProjektPraktyki/auth/main_screen.dart';
+import 'package:ProjektPraktyki/screens/change_password_screen.dart';
+import 'package:ProjektPraktyki/screens/edit_profile_screen.dart';
+import 'package:ProjektPraktyki/screens/home_page.dart';
 import '../auth/auth_page.dart';
 import '../widgets/pop_up_settings_tile.dart';
 import '../widgets/settings_tile.dart';
 import '../widgets/switch_settings_tile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:loginscreen/screens/notificationview.dart';
+import 'package:ProjektPraktyki/screens/notificationview.dart';
 
 
 
