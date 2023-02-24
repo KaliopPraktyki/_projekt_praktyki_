@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:loginscreen/screens/settings_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'dart:io';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -25,7 +24,6 @@ class _EditProfileState extends State<EditProfile> {
   String? _firstName = '';
   String? _lastName = '';
   File? _profileImage;
-  String? _imagePickedType;
   TextEditingController dateInput = TextEditingController();
   displayProfileImage() {
     if (_profileImage == null) {
@@ -119,6 +117,7 @@ class _EditProfileState extends State<EditProfile> {
                     Padding(
                       padding: EdgeInsets.only(top: 10, bottom: 10,),
                       child: TextFormField(
+                        controller: TextEditingController(text: _firstName),
                         decoration:  InputDecoration(
                           border: UnderlineInputBorder(),
                           labelText: AppLocalizations.of(context)!.firstname,
